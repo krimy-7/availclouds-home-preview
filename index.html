@@ -442,28 +442,36 @@ h1, h2, h3 { font-family: var(--display); font-weight: 800; letter-spacing: -0.0
 
 /* ======================= Tablet and phone ======================= */
 @media (max-width: 1100px) {
-  .mod { grid-template-columns: minmax(0, 1fr); }
+  .mod { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .mod > .proof { order: 2; } /* the heading first, then its example ticket */
+  .mods { gap: 48px; }
   .handle-grid { grid-template-columns: minmax(0, 1fr); }
   .handle-grid > :first-child { position: static; }
 }
 @media (max-width: 900px) {
   .split { display: flex; flex-direction: column; padding: 0; }
-  .sheet { padding: 0 20px; position: relative; z-index: 1; }
-  .stage { order: 1; align-self: stretch; top: 0; height: 56svh; margin: 0 12px; z-index: 3; }
+  /* phones: the heading, then the desk (pinned), then the example night */
+  .sheet { display: contents; }
+  .now, .night-story { padding-inline: 20px; position: relative; z-index: 1; }
+  .stage { order: 1; align-self: stretch; top: 0; height: min(52svh, 470px); margin: 0 12px; z-index: 3; }
   /* the desk stays pinned at the top on phones: anything focused or jumped to below it scrolls clear of it */
-  .sheet :is(a, button, input, h2, h3) { scroll-margin-top: calc(56svh + 16px); }
-  .sheet { order: 2; }
+  .sheet :is(a, button, input, h2, h3) { scroll-margin-top: calc(min(52svh, 470px) + 16px); }
+  .now { order: 0; } .night-story { order: 2; }
   .stage-bar { min-height: 0; padding: 8px 12px; font-size: 14px; }
   .desk { margin: 8px 8px 0; max-height: none; }
   .clocks { grid-template-columns: 1fr 1fr; } .tally, .detail, .ex-pill { display: none; }
   .main { grid-template-columns: minmax(0, 1fr); }
   .clk .time { font-size: 24px; } .clk, .tally { padding: 10px 12px; }
-  .row { padding: 8px 12px; grid-template-columns: 68px minmax(0, 1fr) auto; } .row .tm { font-size: 12.5px; white-space: nowrap; } .row:nth-child(n+4):not(.idle) { display: none; }
+  .row { padding: 8px 12px; grid-template-columns: 68px minmax(0, 1fr) auto; } .row .tm { font-size: 12.5px; white-space: nowrap; } .rows .row:nth-child(n+4) { display: none; }
   .pill .pl { display: none; } .pill .ps { display: inline; } .app-bar { padding: 10px 12px; white-space: nowrap; }
-  .stage-bar .shift { font-size: 14px; }
-  .scrub { flex-basis: 100%; }
-  .scrub-out { font-size: 14px; }
-  .now { min-height: 52svh; padding-top: 40px; }
+  /* phones: one compact row under the desk. The desk already shows both clocks and who is on shift, so the sentence and the shift line stay for screen readers only */
+  .stage-bar { flex-wrap: nowrap; gap: 10px; padding: 10px 4px 8px; }
+  .stage-bar .shift, .scrub-out { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .scrub { flex: 1 1 auto; flex-wrap: nowrap; gap: 10px; min-width: 0; }
+  .scrub label { font-size: 14px; }
+  .scrub input { min-width: 0; }
+  .example-tag { font-size: 14px; }
+  .now { min-height: 0; padding-top: 36px; padding-bottom: 24px; }
   .night-story { padding-top: 48px; }
   .night-story { min-height: 0; padding-bottom: 56px; }
   .beat h3 { font-size: 30px; }
@@ -1412,7 +1420,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 800; letter-spacing: -0.0
   new IntersectionObserver(function (es) {
     if (es[0].isIntersecting) { p0 = storyP; t0 = performance.now(); setMode('story'); } else setMode('live');
     paint();
-  }, { threshold: 0.25 }).observe(story);
+  }, { rootMargin: "0px 0px -45% 0px" }).observe(story); /* the night starts once its section reaches the top half of the screen */
   if (reduce) storyP = 0.15;
 
   new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) kick(); }).observe(stage);
