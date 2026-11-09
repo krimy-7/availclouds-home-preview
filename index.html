@@ -1,0 +1,1491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Availclouds | The after-hours help desk for MSPs</title>
+<meta name="description" content="Availclouds answers your clients' tickets from 6 PM to 8 AM Eastern and through the weekend, inside your PSA and signed as your team, with a handoff note at 8 AM.">
+<meta name="theme-color" content="#0B1430">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Availclouds | The after-hours help desk for MSPs">
+<meta property="og:description" content="When your team signs off at 6 PM, ours signs on. Your clients' tickets, answered overnight under your name.">
+<meta property="og:image" content="https://availclouds.com/msp/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- build:head -->
+<link rel="icon" type="image/svg+xml" href="img/logo-mark.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="https://availclouds.com/wp-content/uploads/2025/06/icon-2.png">
+<link rel="apple-touch-icon" href="https://availclouds.com/wp-content/uploads/2025/06/icon-2.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://availclouds.com/#org","name":"Availclouds","legalName":"Availclouds LLC","url":"https://availclouds.com/","logo":"https://availclouds.com/wp-content/uploads/2025/06/icon-2.png","email":"msp@availclouds.com","telephone":"+1-551-203-0965","address":{"@type":"PostalAddress","streetAddress":"701 Rising Star Dr","addressLocality":"Henderson","addressRegion":"NV","postalCode":"89014","addressCountry":"US"}},{"@type":"WebSite","@id":"https://availclouds.com/#website","url":"https://availclouds.com/","name":"Availclouds","publisher":{"@id":"https://availclouds.com/#org"}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800&family=Red+Hat+Text:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<style>
+/* Follow the Sun, front door. One night of the year's quiet work, told on a map that never leaves the screen. */
+:root {
+  --night: #0B1430;
+  --night-2: #121E42;
+  --night-3: #1A2A57;
+  --text: #F2F6FC;          /* ink on night */
+  --soft: #B4C4DC;          /* secondary on night, 9.6:1 */
+  --bg: #EAF2FA;            /* the day: reading ground */
+  --surface: #DBE6F3;       /* one tone step off the day */
+  --paper: #FFFFFF;         /* documents only */
+  --ink: #0E1A36;
+  --muted: #3F4D68;         /* 7.9:1 on --bg */
+  --accent: #FBA41A;        /* the lamp: the action, the desk */
+  --accent-hi: #FFB938;
+  --ok: #1D7A52; --ok-n: #8FE3B5;
+  --warn: #8A5A00; --warn-n: #F5C451;
+  --alert: #B8322A; --alert-n: #FF7A6B;
+  --display: "Red Hat Display", system-ui, sans-serif;
+  --body: "Red Hat Text", system-ui, sans-serif;
+  --gutter: clamp(16px, 2.2vw, 32px);
+  --r: 4px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --sec: clamp(72px, 8vw, 120px);
+  /* five sizes */
+  --t-xl: clamp(44px, 5.6vw, 92px);
+  --t-l: clamp(30px, 3.2vw, 52px);
+  --t-m: clamp(22px, 1.8vw, 28px);
+  --t-s: 18px;
+  --t-xs: 15px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scrollbar-color: var(--muted) var(--surface); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font: 400 var(--t-s)/1.55 var(--body); font-kerning: normal; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img, video, canvas, svg { display: block; max-width: 100%; }
+a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1.5px; }
+::selection { background: var(--accent); color: var(--night); }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+.n :focus-visible, .stage :focus-visible, .close :focus-visible, .site-foot :focus-visible { outline-color: var(--accent); }
+h1, h2, h3 { font-family: var(--display); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; text-wrap: balance; }
+.num { font-variant-numeric: tabular-nums; }
+.ap { font-size: 0.62em; font-weight: 700; letter-spacing: 0.02em; margin-left: 0.2em; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: fixed; left: 12px; top: -60px; z-index: 50; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: var(--r); font-weight: 700; text-decoration: none; }
+.skip:focus { top: 12px; }
+
+/* Buttons: one shape, square-cornered */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; border-radius: var(--r); border: 0; font: 700 17px/1 var(--display); letter-spacing: -0.005em; text-decoration: none; cursor: pointer; transition: transform .25s var(--ease), background-color .2s ease-out; }
+.btn-lamp { background: var(--accent); color: var(--night); }
+.btn-lamp:hover { background: var(--accent-hi); transform: translateY(-2px); }
+.btn:active { transform: translateY(1px) scale(.98); }
+.text-link { font: 700 17px/1.2 var(--display); text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); transition: text-decoration-color .2s; }
+.text-link:hover { text-decoration-color: currentColor; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+
+/* ======================= The first screen: one day split by the sunset line ======================= */
+/* Your team's day on the left, our night on the right; the seam is 6 PM, the handoff. */
+:root { --day: var(--bg); --ink-soft: #3A4762; --lamp: var(--accent); --lamp-hi: var(--accent-hi); --seam: #FF6F6A; --line-n: rgba(201, 227, 246, .16);
+  --rule: #C7D4E5; --rule-2: #DCE5F0; --hg: clamp(16px, 5.2vw, 80px); --seamgap: clamp(84px, 9.6vw, 150px);
+  --lift: 0 1px 2px rgba(14, 26, 54, .08), 0 26px 50px -24px rgba(14, 26, 54, .42); }
+.site-header { position: absolute; inset: 0 0 auto; z-index: 10; height: 76px; display: flex; align-items: center; gap: 40px; padding-inline: var(--hg); }
+.brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--ink); text-decoration: none; font: 800 23px/1 var(--display); letter-spacing: -0.028em; }
+.brand img { width: 46px; height: 35px; display: block; }
+.nav { display: flex; gap: 28px; font: 600 16px/1 var(--display); }
+.nav a { color: var(--ink); padding-block: 14px; text-decoration: underline 2px transparent; text-underline-offset: 7px; transition: text-decoration-color .25s; }
+.nav a:hover, .nav a:focus-visible { text-decoration-color: currentColor; }
+.login { margin-left: auto; display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 0 16px; border: 1.5px solid rgba(220, 230, 245, .42); border-radius: var(--r); color: var(--text); text-decoration: none; font: 700 15.5px/1 var(--display); white-space: nowrap; transition: background-color .2s, border-color .2s; }
+.login:hover { border-color: var(--text); background: rgba(220, 230, 245, .08); }
+.login:focus-visible { outline-color: var(--lamp); }
+.login svg { width: 17px; height: 17px; }
+.site-foot .brand { color: var(--text); }
+
+.hero { position: relative; height: clamp(560px, 100svh, 1080px); /* the whole first screen, buttons included, fits a short laptop window */ overflow: hidden; isolation: isolate;
+  background: linear-gradient(97deg, var(--day) 0 44%, #FFD9C4 47.5%, #E2676B 50%, #2E2150 52.5%, var(--night) 56%); } /* taste-skill-ignore: the day/night seam, no-JS fallback for the canvas terminator */
+.js .hero { background: var(--day); }
+.hero canvas { position: absolute; inset: 0; z-index: 0; display: block; width: 100%; height: 100%; }
+.doors { position: relative; z-index: 2; height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 96px 0 92px; }
+.door { display: flex; flex-direction: column; justify-content: flex-end; min-width: 0; }
+.door-day { padding: 0 var(--seamgap) 0 var(--hg); color: var(--ink); }
+.door-night { padding: 0 var(--hg) 0 var(--seamgap); color: var(--text); }
+.door-night ::selection { background: var(--lamp); color: var(--night); }
+.door-night :focus-visible { outline-color: var(--lamp); }
+.copy { max-width: 560px; }
+.door h1, .door .door-title { max-width: 8.4em; font: 800 clamp(34px, min(3.9vw, 6.4vh), 68px)/0.99 var(--display); letter-spacing: -0.038em; text-wrap: balance; }
+.lede { margin-top: 22px; max-width: 45ch; font-size: clamp(17px, 1.24vw, 19.5px); line-height: 1.55; }
+.door-day .lede { color: var(--ink-soft); }
+.door-night .lede { color: #C9D5E8; }
+.lede b { font-weight: 700; }
+.door-day .lede b { color: var(--ink); }
+.door-night .lede b { color: #fff; }
+.door .actions { margin-top: 30px; }
+/* entrance: each door's copy rises after the seam has swept in */
+.js .door .copy > * { opacity: 0; transform: translateY(18px); animation: doorin .7s var(--ease) forwards; }
+.js .door-night .copy > :nth-child(1) { animation-delay: .05s; } .js .door-night .copy > :nth-child(2) { animation-delay: .13s; } .js .door-night .copy > :nth-child(3) { animation-delay: .21s; }
+.js .door-day .copy > :nth-child(1) { animation-delay: .17s; } .js .door-day .copy > :nth-child(2) { animation-delay: .25s; } .js .door-day .copy > :nth-child(3) { animation-delay: .33s; }
+.js .session { opacity: 0; transform: translateY(14px); animation: doorin .7s var(--ease) .4s forwards; }
+@keyframes doorin { to { opacity: 1; transform: none; } }
+
+/* your team's help desk during the day: a small authored window on the day side */
+.session { align-self: flex-start; width: min(430px, 100%); margin: auto auto 44px 0; background: var(--paper); border-radius: 10px; overflow: hidden; font: 500 13px/1.3 var(--body); color: var(--ink); transition: translate .5s var(--ease), box-shadow .5s var(--ease); }
+.hero[data-lean="day"] .session { translate: 0 -4px; box-shadow: 0 1px 2px rgba(14, 26, 54, .08), 0 34px 60px -26px rgba(14, 26, 54, .5); } /* taste-skill-ignore: the window lifts while the day side is hovered */
+.s-bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: var(--ink); color: #DCE6F5; font: 700 13px/1.2 var(--display); }
+.s-bar svg { width: 14px; height: 14px; flex: none; color: var(--lamp); }
+.s-tag { margin-left: auto; padding: 4px 9px; border-radius: 999px; font: 700 12px/1 var(--display); color: var(--lamp); box-shadow: inset 0 0 0 1.5px rgba(251, 164, 26, .55); } /* taste-skill-ignore: outline of the Example tag inside the window (interface fragment) */
+.s-title { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 11px 12px 8px; font: 700 14px/1.2 var(--display); }
+.s-users { display: inline-flex; align-items: center; gap: 6px; font: 500 12.5px/1 var(--body); color: var(--ink-soft); white-space: nowrap; }
+.s-users i { width: 7px; height: 7px; border-radius: 50%; background: #2FA56E; }
+.s-body { padding: 0 12px 10px; }
+.s-body table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.s-body th { text-align: left; font: 500 12px/1.2 var(--body); color: var(--ink-soft); padding: 0 0 6px; border-bottom: 1px solid var(--rule); }
+.s-body td { padding: 7px 0; border-bottom: 1px solid var(--rule-2); }
+.s-body > p { font: 700 13px/1.2 var(--display); color: var(--ink-soft); margin-bottom: 6px; }
+.s-body .num { text-align: right; font-variant-numeric: tabular-nums; }
+.s-body tr.sel td { background: #FFF1D9; }
+.s-body tfoot td { border: 0; padding-top: 8px; font-weight: 700; }
+.s-task { display: flex; align-items: center; gap: 3px; padding: 6px 7px; background: #E3EBF5; white-space: nowrap; }
+.s-task .app { padding: 6px 9px; border-radius: 5px; font: 600 12.5px/1 var(--display); color: var(--ink-soft); }
+.s-task .app.on { background: var(--paper); color: var(--ink); }
+.s-ok { margin-left: auto; display: inline-flex; align-items: center; gap: 5px; padding-right: 5px; color: var(--ok); font: 600 12.5px/1 var(--display); font-variant-numeric: tabular-nums; }
+.s-ok svg { width: 14px; height: 14px; flex: none; }
+
+/* map pins: New York (your client) and Kathmandu (our desk) */
+.pins { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.pin { position: absolute; left: 0; top: 0; width: 0; height: 0; opacity: 0; transition: opacity .6s ease-out 1.1s; }
+.ready .pin { opacity: 1; }
+.pin-dot { position: absolute; left: -5.5px; top: -5.5px; width: 11px; height: 11px; border-radius: 50%; background: var(--text); box-shadow: 0 0 0 3px var(--night), 0 0 0 4.5px rgba(242, 246, 252, .7); } /* taste-skill-ignore: ring around a map pin */
+.pin-ktm .pin-dot { background: var(--lamp); box-shadow: 0 0 0 3px var(--night), 0 0 0 4.5px var(--lamp); } /* taste-skill-ignore: ring around a map pin */
+.pin-ktm .pin-dot::after { content: ""; position: absolute; inset: -10px; border-radius: 50%; border: 1.5px solid var(--lamp); animation: ping 2.8s ease-out infinite; }
+.pin-card { position: absolute; top: 14px; display: grid; gap: 2px; min-width: 200px; padding: 9px 13px 10px; background: rgba(11, 20, 48, .9); border-radius: var(--r); white-space: nowrap; color: var(--text); }
+.pin-ny .pin-card { left: 12px; }
+.pin-ktm .pin-card { right: 12px; }
+.pin-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.pin-place { font: 700 15px/1.3 var(--display); }
+.pin-time { font: 700 16px/1.3 var(--display); font-variant-numeric: tabular-nums; }
+.pin-role { font: 500 14px/1.3 var(--display); color: var(--soft); transition: color .3s ease-out; }
+.pin-role.hot { color: var(--lamp); }
+
+/* the seam sits at the middle of the page: on narrower desktops keep the nav on the day side */
+@media (max-width: 1299px) { .nav a[href="https://availclouds.com/msp/#hosting-providers"] { display: none; } }
+@media (max-height: 900px) and (min-width: 861px) { .s-body tbody tr:nth-child(n+3), .s-body tfoot { display: none; } }
+@media (max-height: 730px) and (min-width: 861px) {
+  /* short laptop windows: the window keeps its bar, title and taskbar; the clock cards sit above their dots, clear of the headline */
+  .s-body { display: none; } .doors { padding: 84px 0 80px; } .session { margin-bottom: 26px; }
+  .pin-ny .pin-card, .pin-ktm .pin-card { top: auto; bottom: 14px; }
+  .door .actions { margin-top: 24px; } .lede { margin-top: 16px; }
+}
+@media (max-height: 600px) and (min-width: 861px) { .s-title { display: none; } }
+
+/* phones and narrow tablets: the sunset line turns horizontal, day above night */
+@media (max-width: 860px) {
+  .site-header { height: 64px; gap: 12px; }
+  .nav { display: none; }
+  @media (min-width: 560px) { .nav { display: flex; gap: 20px; } .nav a:not([href="https://availclouds.com/msp/"]) { display: none; } }
+  .brand { font-size: 21px; gap: 9px; }
+  .brand img { width: 40px; height: 30px; }
+  .login { color: var(--ink); border-color: rgba(14, 26, 54, .3); padding: 0 13px; font-size: 15px; }
+  .login:hover { border-color: var(--ink); background: rgba(14, 26, 54, .05); }
+  .login:focus-visible { outline-color: var(--ink); }
+  .hero { height: auto; padding-top: 64px; display: flex; flex-direction: column; background: linear-gradient(180deg, var(--day) 0 46%, #FFD9C4 48%, #E2676B 50%, #2E2150 52%, var(--night) 55%); } /* taste-skill-ignore: the day/night seam on phones, no-JS fallback */
+  .doors { height: auto; display: flex; flex-direction: column; padding: 0; }
+  .door { justify-content: flex-start; padding: 26px var(--hg) 40px; }
+  .door-night { padding-top: 112px; padding-bottom: 52px; }
+  .door h1, .door .door-title { max-width: none; font-size: clamp(34px, 9.4vw, 48px); line-height: 1.02; }
+  .lede { margin-top: 14px; font-size: 17px; }
+  .door .actions { margin-top: 22px; gap: 4px 22px; }
+  .session { order: 3; align-self: stretch; width: auto; margin: 22px 0 0; }
+  .s-title { display: none; }
+  .s-body { padding-top: 10px; }
+  .s-body tbody tr:nth-child(n+3), .s-body tfoot { display: none; }
+  .pin-card { display: none; } /* the stage right below carries both clocks */
+}
+@media (max-width: 400px) { .login .long { display: none; } }
+@media (prefers-reduced-motion: reduce) { .js .door .copy > *, .js .session { opacity: 1 !important; transform: none !important; animation: none !important; } }
+
+/* ======================= The split: day column on the left, the night stage on the right ======================= */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 12px; padding: 12px; max-width: 1720px; margin-inline: auto; } /* very wide screens: the same measure as the other sections */
+.sheet { grid-column: 1; min-width: 0; padding: 0 clamp(16px, 3.4vw, 64px); }
+.stage { grid-column: 2; align-self: start; position: sticky; top: 12px; height: calc(100svh - 24px); border-radius: var(--r); overflow: hidden; background: var(--night); color: var(--text); isolation: isolate; display: flex; flex-direction: column; }
+
+
+/* the night, in three statements */
+/* the lead-in: the map runs live here, with the hour slider, before the example night takes over */
+/* each block is one screen tall (the map's height) and starts level with the top of the map: no floating text, no empty bands */
+.now, .night-story { min-height: calc(100svh - 24px); display: flex; flex-direction: column; justify-content: flex-start; padding-top: clamp(40px, 11svh, 120px); }
+.now { max-width: 540px; }
+.now h2 { font-size: var(--t-l); }
+.now p { margin-top: 18px; font-size: var(--t-s); max-width: 38ch; }
+.night-story h2 { font-size: var(--t-m); letter-spacing: -0.02em; }
+/* the example night plays itself: three steps that fill as the night runs, the beats slide in turn */
+.steps { list-style: none; display: flex; gap: 10px; margin-top: 30px; max-width: 540px; }
+.steps li { flex: 1; }
+.step { all: unset; box-sizing: border-box; cursor: pointer; display: grid; gap: 10px; width: 100%; padding: 8px 0; font: 700 16px/1.2 var(--display); color: var(--muted); transition: color .3s; }
+.step i { position: relative; display: block; height: 4px; border-radius: 2px; background: var(--surface); overflow: hidden; }
+.step i::after { content: ""; position: absolute; inset: 0; background: var(--accent); transform-origin: left; transform: scaleX(var(--fill, 0)); }
+.step.on, .step:hover { color: var(--ink); }
+.step:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+.beats { display: grid; margin-top: 30px; max-width: 540px; }
+.beat { grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateX(28px); transition: opacity .5s var(--ease), transform .6s var(--ease), visibility .6s; }
+.beat.on { opacity: 1; visibility: visible; transform: none; }
+.beat h3 { font-size: var(--t-l); }
+.beat p { margin-top: 18px; font-size: var(--t-s); max-width: 36ch; }
+.play { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 26px; align-self: flex-start; font: 700 16px/1 var(--display); color: var(--ink); text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: 4px; }
+.play:hover { text-decoration-color: currentColor; }
+.play:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+.js .beat:not(.on) h3 { color: var(--muted); }
+
+/* the stage: Northwind IT's help desk (example data), the readout bar under it */
+@keyframes ping { from { transform: scale(.4); opacity: .9; } to { transform: scale(1.7); opacity: 0; } } /* the hero's Kathmandu dot */
+
+.stage-bar { position: relative; z-index: 3; min-height: 64px; padding: 12px clamp(16px, 2vw, 24px); background: var(--bg); color: var(--ink); display: flex; align-items: center; gap: 10px 24px; flex-wrap: wrap; font-size: 15px; }
+.stage-bar .shift { font: 700 16px/1.3 var(--display); margin-right: auto; }
+.scrub { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; flex: 1 1 320px; }
+.scrub label { font: 700 15px/1.2 var(--display); white-space: nowrap; }
+.scrub input { flex: 1; min-width: 120px; accent-color: var(--accent); height: 28px; cursor: pointer; }
+.scrub-out { flex-basis: 100%; font-size: 15px; color: var(--muted); }
+.scrub-now { all: unset; cursor: pointer; display: inline-flex; align-items: center; min-height: 32px; font: 700 14px/1.2 var(--display); color: var(--ink); white-space: nowrap; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: 3px; }
+.scrub-now:hover { text-decoration-color: currentColor; }
+.scrub-now[hidden] { display: none; }
+.scrub-out b { color: var(--ink); font-weight: 700; }
+.example-tag { display: none; font-size: 15px; color: var(--muted); }
+.stage[data-mode="story"] .scrub { display: none; }
+.stage[data-mode="story"] .example-tag { display: block; }
+
+/* the help desk window: title bar, the two clocks and the night's tally, the queue, the latest reply */
+.desk { flex: 1 1 auto; min-height: 0; max-height: 720px; margin: auto 14px; /* tall screens: a desk-sized window centred on the night, not a stretched empty panel */ display: grid; grid-template-rows: auto auto minmax(0, 1fr); background: var(--paper); color: var(--ink); border-radius: 6px; overflow: hidden; font: 400 14px/1.4 var(--body); }
+.app-bar { display: flex; align-items: center; gap: 10px; padding: 11px 16px; background: var(--ink); color: #DCE6F5; font: 700 14px/1.2 var(--display); }
+.app-bar svg { width: 15px; height: 15px; flex: none; color: var(--accent); }
+.ex-pill { padding: 3px 9px; border-radius: 999px; font: 700 12px/1 var(--display); color: var(--accent); box-shadow: inset 0 0 0 1.5px rgba(251, 164, 26, .55); } /* taste-skill-ignore: outline of the Example tag (interface fragment) */
+.pill { margin-left: auto; display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border-radius: 999px; font: 700 12.5px/1 var(--display); white-space: nowrap; background: rgba(251, 164, 26, .16); color: var(--accent); transition: background-color .4s, color .4s; }
+.pill i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.pill.day { background: rgba(143, 227, 181, .16); color: var(--ok-n); }
+.pill .ps { display: none; }
+.clocks { display: grid; grid-template-columns: 1fr 1fr 1.3fr; }
+.clk, .tally { padding: 13px 16px 12px; min-width: 0; }
+.clk { background: #F3F7FC; } .clk + .clk { background: #EBF1F9; }
+.clk .place { font: 700 13px/1.2 var(--display); color: var(--muted); }
+.clk .time { margin-top: 3px; font: 800 clamp(24px, 2.3vw, 32px)/1 var(--display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.clk .time .ap { font-size: .5em; margin-left: 3px; letter-spacing: 0; }
+.clk .who { margin-top: 6px; font: 600 13.5px/1.3 var(--body); color: var(--muted); }
+.clk .who.on { color: var(--ok); }
+.tally { background: #E3EBF6; display: flex; gap: 16px; align-items: flex-end; }
+.tally div { display: grid; gap: 3px; }
+.tally b { font: 800 26px/1 var(--display); font-variant-numeric: tabular-nums; }
+.tally b.bump { animation: bump .6s var(--ease); }
+@keyframes bump { 35% { transform: translateY(-4px); color: var(--warn); } }
+.tally span { font-size: 12.5px; line-height: 1.4; color: var(--muted); }
+.main { min-height: 0; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+.pane-h { padding: 12px 16px 8px; font: 700 13px/1.2 var(--display); color: var(--muted); }
+.queue { min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+.rows { list-style: none; min-height: 0; overflow: hidden; }
+.row { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 1px 10px; align-items: center; padding: 9px 16px; }
+.row:nth-child(even) { background: #F6F9FC; }
+.row .tm { grid-row: 1 / span 2; align-self: start; padding-top: 2px; font: 600 13.5px/1.2 var(--body); color: var(--muted); font-variant-numeric: tabular-nums; }
+.row .ti { font: 700 14.5px/1.25 var(--display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row .cl { grid-column: 2; font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row .tag { grid-row: 1 / span 2; grid-column: 3; transition: background-color .4s, color .4s; }
+.row.arrive { animation: arrive .8s var(--ease) both; }
+@keyframes arrive { from { opacity: 0; transform: translateY(-14px); background-color: #FFE6BC; } 55% { background-color: #FFF3DF; } }
+.empty { padding: 6px 16px; color: var(--muted); font-size: 14.5px; }
+.idle { display: flex; align-items: center; gap: 9px; padding: 12px 16px; font: 600 13.5px/1.3 var(--body); color: var(--muted); }
+.idle i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.tag { display: inline-block; padding: 4px 8px; border-radius: 999px; font: 700 12.5px/1 var(--display); white-space: nowrap; }
+.tag.new { background: #FFF1D9; color: var(--warn); }
+.tag.work { background: #E4ECF8; color: var(--ink); }
+.tag.ok { background: #E1F3EA; color: var(--ok); }
+.tag.esc { background: #FBE6E4; color: var(--alert); }
+.tag.dec { background: #FFF1D9; color: var(--warn); }
+.detail { min-height: 0; overflow: hidden; background: #F3F7FC; padding-bottom: 14px; }
+.card { margin: 0 16px; padding: 14px 16px; background: var(--paper); border-radius: 6px; font-size: 14px; line-height: 1.5; animation: cardin .55s var(--ease) both; }
+@keyframes cardin { from { opacity: 0; transform: translateY(8px); } }
+.card .subj { font: 800 16px/1.3 var(--display); letter-spacing: -0.01em; }
+.card .meta { margin-top: 4px; font-size: 12.5px; color: var(--muted); }
+.card p + p, .card .chips + p { margin-top: 8px; }
+.card .chips { margin-top: 10px; }
+.card .sig { font-weight: 700; }
+.by { margin: 10px 16px 0; font-size: 12.5px; color: var(--muted); }
+.by b { color: var(--ink); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ======================= Full-width chapters ======================= */
+.sec { padding-block: var(--sec); padding-inline: var(--gutter); }
+.wrap { max-width: 1440px; margin-inline: auto; }
+.sec-head { font-size: var(--t-l); max-width: 16ch; }
+
+/* What the night leaves behind: the morning's desk, every paper of one example night in the order it was written */
+.desk-sec .desk-head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 24px clamp(32px, 5vw, 96px); align-items: end; }
+.desk-sec .sec-head { color: var(--text); }
+.desk-head p { max-width: 44ch; font-size: var(--t-s); color: var(--soft); }
+.papers { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 1.6vw, 28px); margin-top: clamp(48px, 6vw, 80px); align-items: start; }
+.papers > li { display: grid; gap: 14px; align-content: start; }
+/* laid down through the night: each paper a step lower than the one before */
+.papers > li:nth-child(2) { margin-top: 32px; } .papers > li:nth-child(3) { margin-top: 64px; } .papers > li:nth-child(4) { margin-top: 96px; }
+.paper-when { font: 700 16px/1.2 var(--display); color: var(--accent); font-variant-numeric: tabular-nums; }
+.paper-name { margin-top: -8px; font: 800 clamp(21px, 1.7vw, 26px)/1.15 var(--display); letter-spacing: -0.02em; color: var(--text); }
+.paper-what { font-size: 15.5px; line-height: 1.5; color: var(--soft); min-height: 3em; }
+.sheet-doc { background: var(--paper); border-radius: var(--r); padding: 22px 22px 24px; font: 400 14.5px/1.55 var(--body); color: var(--ink); transition: transform .45s var(--ease); }
+.papers > li:hover .sheet-doc { transform: translateY(-6px); }
+.papers-note { margin-top: 28px; font-size: 15px; color: var(--soft); }
+.doc-meta { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 4px 10px; font-size: 14px; padding-bottom: 16px; margin-bottom: 18px; border-bottom: 1px solid #E3EAF3; } /* taste-skill-ignore: divider inside an example document (interface fragment) */
+.doc-meta dt { color: var(--muted); }
+.doc-title { font: 800 18px/1.3 var(--display); letter-spacing: -0.02em; margin-bottom: 14px; }
+.sheet-doc p + p { margin-top: 12px; }
+.sig { margin-top: 18px; font-weight: 700; }
+.tl { list-style: none; display: grid; gap: 12px; margin-top: 6px; }
+.tl li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 8px; }
+.tl b { font: 700 14px/1.55 var(--display); font-variant-numeric: tabular-nums; }
+.tix { list-style: none; display: grid; gap: 14px; margin-top: 16px; }
+.tix li { display: grid; gap: 3px; padding-bottom: 14px; border-bottom: 1px solid #E3EAF3; } /* taste-skill-ignore: divider inside an example document (interface fragment) */
+.tix .m { font-size: 13.5px; color: var(--muted); }
+.st-line { font: 700 14px/1.3 var(--display); }
+.st-line.ok { color: var(--ok); } .st-line.esc { color: var(--alert); } .st-line.dec { color: var(--warn); }
+.kv { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 15px; }
+.kv th { text-align: left; font-weight: 400; padding: 9px 0; color: var(--muted); border-top: 1px solid #E3EAF3; }
+.kv td { text-align: right; font: 700 15px/1.3 var(--display); padding: 9px 0; border-top: 1px solid #E3EAF3; font-variant-numeric: tabular-nums; }
+.bars { display: flex; align-items: flex-end; gap: 3px; height: 72px; margin: 14px 0 6px; }
+.bars i { flex: 1; background: var(--night); border-radius: 1px 1px 0 0; }
+.bars-cap { font-size: 13.5px; color: var(--muted); }
+
+/* What we handle: small proof beside text */
+.handle-sec { background: var(--paper); padding-top: calc(var(--sec) / 2); }
+.handle-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 48px clamp(32px, 5vw, 96px); align-items: start; }
+.handle-grid > :first-child { position: sticky; top: 15svh; } /* the heading and its intro stick together */
+.handle-grid .intro { margin-top: 22px; max-width: 30ch; color: var(--muted); }
+.mods { display: grid; gap: clamp(64px, 7vw, 110px); }
+.mod { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 300px); gap: 24px 28px; align-items: start; }
+.proof { background: var(--bg); border-radius: var(--r); padding: 16px; font: 400 14px/1.4 var(--body); }
+.proof .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--paper); border-radius: var(--r); padding: 10px 12px; }
+.proof .row + .row { margin-top: 6px; }
+.proof .t { font: 700 14px/1.3 var(--display); }
+.proof .s { font-size: 13.5px; color: var(--muted); }
+.mod h3 { font: 700 21px/1.3 var(--display); letter-spacing: -0.015em; }
+.mod p { margin-top: 10px; font-size: 16.5px; color: var(--muted); }
+
+/* The letter + the film */
+.letter-sec { background: var(--bg); }
+.letter-grid { display: grid; grid-template-columns: minmax(0, 560px) minmax(0, 420px); justify-content: center; gap: 48px clamp(40px, 7vw, 120px); align-items: center; }
+.letter .mark { width: 54px; height: 41px; }
+.letter h2 { font-size: var(--t-l); margin-top: 26px; max-width: 14ch; }
+.letter p { margin-top: 20px; font-size: 18px; line-height: 1.6; }
+.letter mark { background: #FFE2AE; color: var(--ink); padding: 0 .12em; }
+.sign { margin-top: 30px; }
+.sign i { font: italic 400 22px/1.2 var(--body); display: block; }
+.sign span { font-size: 15px; color: var(--muted); }
+.film { position: relative; aspect-ratio: 9 / 16; width: 100%; max-height: 82svh; border-radius: var(--r); overflow: hidden; background: var(--night); }
+.film video { width: 100%; height: 100%; object-fit: cover; }
+.film-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 22px; border: 0; background: transparent; cursor: pointer; color: var(--text); }
+.film-play span { display: inline-flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: var(--r); background: var(--accent); color: var(--night); font: 700 17px/1 var(--display); transition: transform .25s var(--ease); }
+.film-play:hover span { transform: translateY(-2px); }
+.film-play svg { width: 16px; height: 16px; }
+.film.playing .film-play { display: none; }
+
+/* Who it's for: sticky picture, active list (night chapter) */
+.n { background: var(--night); color: var(--text); }
+.who-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px clamp(40px, 6vw, 110px); align-items: start; }
+.who-pic { position: sticky; top: 12svh; aspect-ratio: 4 / 5; border-radius: var(--r); overflow: hidden; background: var(--night-2); }
+.who-pic > * { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .9s ease-out, transform 6s linear; transform: scale(1.04); }
+.who-pic > .on { opacity: 1; transform: scale(1); }
+.who-list h2 { font-size: var(--t-l); margin-bottom: 40px; }
+.rows { list-style: none; }
+.rows { display: grid; gap: 6px; }
+.rowi button { all: unset; box-sizing: border-box; cursor: pointer; width: 100%; min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; }
+.rowi .nm { font: 700 clamp(22px, 1.9vw, 28px)/1.3 var(--display); letter-spacing: -0.02em; color: var(--soft); transition: color .25s; }
+.rowi .mt { font-size: 15px; color: var(--soft); text-align: right; }
+.rowi.on .nm, .rowi button:hover .nm { color: var(--text); }
+.rowi.on .mt { color: var(--accent); }
+.rowi button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.rowi .desc { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows .45s var(--ease), visibility .45s; }
+.rowi.on .desc { grid-template-rows: 1fr; visibility: visible; } /* collapsed rows keep their links out of the tab order */
+.rowi .desc > div { overflow: hidden; }
+.rowi .desc p { max-width: 42ch; padding-bottom: 6px; color: var(--soft); font-size: 17px; }
+.rowi .desc a { display: inline-block; margin: 8px 0 22px; font: 700 17px/1.2 var(--display); color: var(--accent); }
+
+/* From the blog */
+.blog-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 40px clamp(32px, 5vw, 96px); }
+.posts { list-style: none; display: grid; gap: 18px; margin-top: -22px; }
+.posts li { padding: 22px 0; display: grid; gap: 8px; }
+.posts a { font: 700 clamp(21px, 1.8vw, 27px)/1.3 var(--display); letter-spacing: -0.02em; text-decoration: none; transition: color .2s; }
+.posts a:hover { text-decoration: underline; }
+.posts time { font-size: 15px; color: var(--muted); }
+.posts p { font-size: 17px; color: var(--muted); max-width: 62ch; }
+.all-posts { margin-top: 26px; }
+
+/* The close */
+.close { position: relative; overflow: hidden; display: flex; align-items: center; min-height: min(54vw, 100svh); padding: var(--sec) var(--gutter); background: var(--night); color: var(--text); }
+.close-pic { position: absolute; top: 0; right: 0; width: 70%; height: 100%; object-fit: cover; object-position: 30% center; -webkit-mask-image: linear-gradient(90deg, transparent, #000 30%); mask-image: linear-gradient(90deg, transparent, #000 30%); } /* taste-skill-ignore: photo fade so the closing headline sits on the dark wall */
+.close .wrap { position: relative; margin-inline: 0; max-width: 600px; }
+.close h2 { font-size: var(--t-l); max-width: 13em; }
+.close .close-sub { margin-top: 18px; max-width: 34ch; font: 400 18px/1.5 var(--body); color: #C9D5E8; }
+.close .actions { margin-top: 26px; }
+
+/* Footer: picture half, menu half */
+.site-foot { background: var(--night-2); color: var(--text); padding: clamp(56px, 7vw, 96px) var(--gutter) 28px; }
+.foot-top { max-width: 1440px; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px clamp(32px, 5vw, 96px); }
+.site-foot .brand img { width: 40px; height: 30px; }
+.site-foot .brand b { font-size: 20px; }
+.foot-line { margin-top: 20px; max-width: 24ch; font: 700 clamp(21px, 1.8vw, 26px)/1.3 var(--display); letter-spacing: -0.015em; }
+.foot-now { margin-top: 18px; max-width: 42ch; display: flex; gap: 10px; align-items: baseline; font-size: 15px; line-height: 1.5; color: var(--soft); }
+.foot-now i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); transform: translateY(-1px); }
+.foot-now.day i { background: var(--ok-n); }
+.foot-now b { color: var(--text); font-weight: 700; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.foot-h { margin-bottom: 14px; font: 700 15px/1.3 var(--display); color: var(--soft); }
+.foot-cols ul { list-style: none; display: grid; gap: 10px; }
+.foot-cols a { font: 500 17px/1.4 var(--body); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color .2s; }
+.foot-cols a:hover, .foot-cols a:focus-visible { text-decoration-color: currentColor; }
+.foot-cols address { margin-top: 18px; font-style: normal; font-size: 15px; line-height: 1.5; color: var(--soft); }
+.legal { max-width: 1440px; margin: clamp(48px, 6vw, 80px) auto 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--soft); }
+.legal a { color: var(--soft); }
+.legal a:hover { color: var(--text); }
+
+/* ======================= Entrances (content stays visible without script) ======================= */
+.js [data-rise] > * { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .9s var(--ease); }
+.js [data-rise].in > * { opacity: 1; transform: none; }
+.js [data-rise].in > :nth-child(2) { transition-delay: .08s; }
+.js [data-rise].in > :nth-child(3) { transition-delay: .16s; }
+.js [data-rise].in > :nth-child(4) { transition-delay: .24s; }
+.js [data-rise].in > :nth-child(5) { transition-delay: .32s; }
+
+
+/* ======================= Tablet and phone ======================= */
+@media (max-width: 1100px) {
+  .mod { grid-template-columns: minmax(0, 1fr); }
+  .handle-grid { grid-template-columns: minmax(0, 1fr); }
+  .handle-grid > :first-child { position: static; }
+}
+@media (max-width: 900px) {
+  .split { display: flex; flex-direction: column; padding: 0; }
+  .sheet { padding: 0 20px; position: relative; z-index: 1; }
+  .stage { order: 1; align-self: stretch; top: 0; height: 56svh; margin: 0 12px; z-index: 3; }
+  /* the desk stays pinned at the top on phones: anything focused or jumped to below it scrolls clear of it */
+  .sheet :is(a, button, input, h2, h3) { scroll-margin-top: calc(56svh + 16px); }
+  .sheet { order: 2; }
+  .stage-bar { min-height: 0; padding: 8px 12px; font-size: 14px; }
+  .desk { margin: 8px 8px 0; max-height: none; }
+  .clocks { grid-template-columns: 1fr 1fr; } .tally, .detail, .ex-pill { display: none; }
+  .main { grid-template-columns: minmax(0, 1fr); }
+  .clk .time { font-size: 24px; } .clk, .tally { padding: 10px 12px; }
+  .row { padding: 8px 12px; grid-template-columns: 68px minmax(0, 1fr) auto; } .row .tm { font-size: 12.5px; white-space: nowrap; } .row:nth-child(n+4):not(.idle) { display: none; }
+  .pill .pl { display: none; } .pill .ps { display: inline; } .app-bar { padding: 10px 12px; white-space: nowrap; }
+  .stage-bar .shift { font-size: 14px; }
+  .scrub { flex-basis: 100%; }
+  .scrub-out { font-size: 14px; }
+  .now { min-height: 52svh; padding-top: 40px; }
+  .night-story { padding-top: 48px; }
+  .night-story { min-height: 0; padding-bottom: 56px; }
+  .beat h3 { font-size: 30px; }
+  .outputs, .who-grid, .blog-grid, .letter-grid { grid-template-columns: minmax(0, 1fr); }
+  .desk-sec .desk-head { grid-template-columns: minmax(0, 1fr); }
+  .papers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .papers > li:nth-child(n) { margin-top: 0; }
+  .who-pic { position: relative; top: auto; aspect-ratio: 4 / 3; height: auto; width: 100%; }
+  .close { display: block; padding: 0 0 72px; }
+  .close-pic { position: static; width: 100%; height: auto; aspect-ratio: 4 / 3; object-position: 62% center; -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent); mask-image: linear-gradient(180deg, #000 72%, transparent); } /* taste-skill-ignore: photo fade on phones */
+  .close .wrap { max-width: none; padding: 4px var(--gutter) 0; }
+  .film { max-height: none; max-width: 420px; }
+  .foot-top { grid-template-columns: minmax(0, 1fr); }
+  .foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .js [data-rise] > * { opacity: 1 !important; transform: none !important; }
+  .who-pic > * { transform: none; }
+}
+/* phones: the papers become a row you swipe, each most of the screen wide (after the tablet rules so it wins) */
+@media (max-width: 620px) {
+  .papers { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; margin-inline: calc(-1 * var(--gutter)); padding: 0 var(--gutter) 10px; scroll-padding-inline: var(--gutter); scrollbar-color: var(--soft) transparent; }
+  .papers > li { flex: 0 0 84%; scroll-snap-align: start; }
+  .paper-what { min-height: 0; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<script>document.documentElement.classList.add('js');</script>
+
+<header class="site-header">
+  <a class="brand" href="https://availclouds.com/" aria-label="Availclouds home"><img src="img/logo-mark.svg" width="46" height="35" alt=""><span>Availclouds</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="https://availclouds.com/msp/">After-hours desk</a>
+    <a href="https://availclouds.com/msp/#hosting-providers">Hosting providers</a>
+    <a href="https://availclouds.com/blog/">Blog</a>
+  </nav>
+  <a class="login" href="https://availclouds.com/my-account/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10" cy="6.5" r="3.5"/><path d="M3 17.5c.9-3.4 3.7-5.2 7-5.2s6.1 1.8 7 5.2" stroke-linecap="round"/></svg><span>Client login<span class="long"> / support</span></span></a>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <canvas id="fx" aria-hidden="true"></canvas>
+    <p class="sr-only">A world map split by the line between day and night. The daylit half is for our hosting clients and their hosted QuickBooks. On the night half, past 6 PM, an example ticket flies from an MSP's client in New York to our desk in Kathmandu and the answer flies back, signed as the MSP's team.</p>
+
+    <div class="pins" aria-hidden="true">
+      <div class="pin pin-ny" data-lon="-74.006" data-lat="40.713">
+        <span class="pin-dot"></span>
+        <span class="pin-card" data-quiet><span class="pin-head"><span class="pin-place">New York</span><span class="pin-time" data-tz="America/New_York">7:20 PM</span></span><span class="pin-role" id="role-ny">Your client's office</span></span>
+      </div>
+      <div class="pin pin-ktm" data-lon="85.324" data-lat="27.717">
+        <span class="pin-dot"></span>
+        <span class="pin-card" data-quiet><span class="pin-head"><span class="pin-place">Kathmandu</span><span class="pin-time" data-tz="Asia/Kathmandu">5:05 AM</span></span><span class="pin-role" id="role-ktm">Our desk, on shift</span></span>
+      </div>
+    </div>
+
+    <div class="doors">
+      <article class="door door-day" data-side="day" aria-labelledby="day-title">
+        <figure class="session" data-quiet aria-labelledby="session-cap">
+          <div class="s-bar"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="6" width="9" height="6.5" rx="1.3"/><path d="M4.5 6V4.4a2.5 2.5 0 0 1 5 0V6"/></svg>Hosted desktop · Harbor &amp; Pine CPA<span class="s-tag">Example</span></div>
+          <div class="s-title">QuickBooks Desktop Enterprise<span class="s-users"><i></i>3 people in this file</span></div>
+          <div class="s-body">
+            <p>Customer Center · Open invoices</p>
+            <table>
+              <thead><tr><th scope="col">Customer</th><th scope="col">Due</th><th scope="col" class="num">Open balance</th></tr></thead>
+              <tbody>
+                <tr><td>Alder Street Dental</td><td>Oct 12</td><td class="num">4,120.00</td></tr>
+                <tr class="sel"><td>Meridian Feed Co.</td><td>Oct 18</td><td class="num">860.50</td></tr>
+                <tr><td>North Fork Vineyards</td><td>Oct 21</td><td class="num">12,480.00</td></tr>
+                <tr><td>Quarry Lane HOA</td><td>Oct 30</td><td class="num">1,295.00</td></tr>
+              </tbody>
+              <tfoot><tr><td>Total open</td><td></td><td class="num">18,755.50</td></tr></tfoot>
+            </table>
+          </div>
+          <div class="s-task"><span class="app on">QuickBooks</span><span class="app">Excel</span><span class="app">Word</span><span class="s-ok"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="7" cy="7" r="5.6"/><path d="M4.5 7.2l1.7 1.7 3.4-3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Backed up 2:00 AM</span></div>
+          <figcaption class="sr-only" id="session-cap">Example of a hosted desktop: QuickBooks Desktop Enterprise open with three people in the same company file, Excel and Word on the taskbar, and last night's backup complete.</figcaption>
+        </figure>
+        <div class="copy" data-quiet>
+          <p class="door-title" id="day-title">Your QuickBooks, open wherever the work is.</p>
+          <p class="lede"><b>For our hosting clients.</b> Your files are backed up every day and open from a PC, a Mac or a phone. As we <a href="https://availclouds.com/after-hours-support-quickbooks-hosting-providers/">move out of hosting</a>, we'll walk each of you through the change.</p>
+          <div class="actions">
+            <a class="btn btn-lamp" href="https://availclouds.com/my-account/" data-track="hero_login">Client login</a>
+            <a class="text-link" href="https://availclouds.com/contact-us/" data-track="hero_support">Get support</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="door door-night" data-side="night" aria-labelledby="hero-title">
+        <div class="copy" data-quiet>
+          <h1 id="hero-title">The night shift you don't have to hire.</h1>
+          <p class="lede"><b>For MSPs.</b> From 6&nbsp;PM to 8&nbsp;AM Eastern and all weekend, our Kathmandu desk answers your clients' tickets in your PSA and signs every reply as your team.</p>
+          <div class="actions">
+            <a class="btn btn-lamp" href="https://availclouds.com/msp/#book" data-track="hero_book">Book a 20-minute call</a>
+            <a class="text-link" href="https://availclouds.com/msp/#pilot" data-track="hero_pilot">How the pilot works</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+<div class="split">
+  <div class="sheet">
+      
+
+      <section class="now" aria-labelledby="now-title">
+        <h2 id="now-title">Who has your queue right now.</h2>
+        <p>Day hours are your team's. From 6&nbsp;PM to 8&nbsp;AM Eastern and all weekend, they're ours. Move the hour under the desk to see any time of day.</p>
+      </section>
+
+      <section class="night-story" id="night" aria-labelledby="night-title">
+        <h2 id="night-title">One night on your queue</h2>
+        <ol class="steps" aria-label="The example night, step by step">
+          <li><button type="button" class="step on" aria-current="step">6 PM<i></i></button></li>
+          <li><button type="button" class="step">Overnight<i></i></button></li>
+          <li><button type="button" class="step">8 AM<i></i></button></li>
+        </ol>
+        <div class="beats" id="beats">
+        <div class="beat on" data-beat="0">
+          <h3><time class="num">6 PM</time>: your team signs off.</h3>
+          <p>New tickets keep landing in your PSA. On the far side of the world, our desk in Kathmandu is starting its morning.</p>
+        </div>
+        <div class="beat" data-beat="1">
+          <h3>Overnight, we work your queue.</h3>
+          <p>Passwords, Outlook, RMM alerts, QuickBooks. Every reply is signed by your team, and anything urgent goes straight to your on-call.</p>
+        </div>
+        <div class="beat" data-beat="2">
+          <h3><time class="num">8 AM</time>: the note is waiting.</h3>
+          <p>What we closed, what we escalated, what needs your decision. Your day starts with a quiet queue.</p>
+        </div>
+        </div>
+        <button type="button" class="play" id="play">Pause</button>
+      </section>
+  </div>
+
+  <figure class="stage" id="stage" data-mode="live" aria-label="An example help desk, Northwind IT, at the hour you pick: who has the queue, and the tickets worked overnight">
+    <div class="desk" id="desk" data-state="live" data-ui aria-hidden="true">
+      <div class="app-bar"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1.5" y="2.5" width="11" height="9" rx="1.6"/><path d="M1.5 5.5h11"/></svg>Northwind IT · Help desk<span class="ex-pill">Example</span><span class="pill" id="desk-st"><i></i><span>After hours · night desk on</span></span></div>
+      <div class="clocks">
+        <div class="clk"><p class="place">New York</p><p class="time" id="t-ny">7:20<span class="ap">PM</span></p><p class="who" id="w-ny">Your team: off</p></div>
+        <div class="clk"><p class="place">Kathmandu</p><p class="time" id="t-ktm">6:05<span class="ap">AM</span></p><p class="who on" id="w-ktm">Our desk: on shift</p></div>
+        <div class="tally" id="tally"></div>
+      </div>
+      <div class="main">
+        <div class="queue"><p class="pane-h" id="q-head">Tonight’s queue</p><ol class="rows" id="queue"></ol></div>
+        <div class="detail"><p class="pane-h" id="d-head">Latest reply</p><div id="detail"></div></div>
+      </div>
+    </div>
+
+    <figcaption class="stage-bar">
+      <span class="shift">On shift 6 PM to 8 AM Eastern, and all weekend</span>
+      <span class="scrub">
+        <label for="hour">Pick an hour</label>
+        <input id="hour" type="range" min="0" max="1425" step="15" value="1170" aria-describedby="hour-out">
+        <button type="button" class="scrub-now" id="hour-now" hidden>Back to now</button>
+        <span class="scrub-out" id="hour-out" aria-live="polite"></span>
+      </span>
+      <span class="example-tag">Example night, invented clients</span>
+    </figcaption>
+  </figure>
+</div>
+
+<section class="sec n desk-sec" id="outputs" aria-labelledby="out-title">
+  <div class="wrap">
+    <div class="desk-head" data-rise>
+      <h2 class="sec-head" id="out-title">What the night leaves behind.</h2>
+      <p>Four papers from one example night, in the order they were written. The clients are invented; the formats are exactly what you get.</p>
+    </div>
+    <ol class="papers" data-rise>
+      <li>
+        <p class="paper-when">11:19 PM</p>
+        <h3 class="paper-name" id="doc-reply-name">The reply</h3>
+        <p class="paper-what">Your client hears from your team, in your PSA. We never sign as Availclouds.</p>
+        <article class="sheet-doc" aria-labelledby="doc-reply-name" data-ui>
+          <dl class="doc-meta"><dt>From</dt><dd>Northwind IT Support</dd><dt>To</dt><dd>Dana Ortiz, Harbor Point CPA</dd><dt>Subject</dt><dd>Re: Outlook stuck on "Updating" [#48217]</dd><dt>Sent</dt><dd class="num">Tue 11:19 PM ET</dd></dl>
+          <p>Hi Dana,</p>
+          <p>Both mail profiles were rebuilding a corrupted cache. I rebuilt them and confirmed send and receive on each machine. You're all set for the morning.</p>
+          <p>If anything looks off, reply here and we'll pick it up.</p>
+          <p class="sig">Northwind IT Support</p>
+        </article>
+      </li>
+      <li>
+        <p class="paper-when">4:36 AM</p>
+        <h3 class="paper-name" id="doc-esc-name">The escalation</h3>
+        <p class="paper-what">Security incidents and outages go straight to your on-call, as your runbook says.</p>
+        <article class="sheet-doc" aria-labelledby="doc-esc-name" data-ui>
+          <p class="doc-title">#48224 · A user entered their password on a fake sign-in page</p>
+          <ul class="tl">
+            <li><b>4:30 AM</b><span>Ticket opened by a staff member at Harbor Point CPA.</span></li>
+            <li><b>4:33 AM</b><span>Password reset, every session signed out, MFA re-enrolled.</span></li>
+            <li><b>4:36 AM</b><span>Called your on-call, Sam, per your runbook: suspected security incident.</span></li>
+            <li><b>4:41 AM</b><span>Sam took the incident. Notes and timeline added to the ticket.</span></li>
+          </ul>
+          <p class="st-line esc" style="margin-top:18px">Escalated to your on-call</p>
+        </article>
+      </li>
+      <li>
+        <p class="paper-when">8:00 AM</p>
+        <h3 class="paper-name" id="doc-note-name">The handoff note</h3>
+        <p class="paper-what">One note for your day team: what we closed, what we escalated, what waits on you.</p>
+        <article class="sheet-doc" aria-labelledby="doc-note-name" data-ui>
+          <p class="doc-title">Morning handoff for Northwind IT</p>
+          <p class="num" style="color:var(--muted);font-size:14.5px">Tue, Jan 12, 6:00 PM to Wed, Jan 13, 8:00 AM Eastern</p>
+          <div class="chips" style="margin-top:12px"><span class="tag ok">9 closed</span><span class="tag esc">1 escalated</span><span class="tag dec">1 needs your decision</span></div>
+          <ul class="tix">
+            <li><span class="m num">#48213 · 9:40 PM · Harbor Point CPA</span><span>QuickBooks Enterprise wouldn't open in multi-user mode. Restarted the database service; access confirmed 9:58 PM.</span><span class="st-line ok">Closed</span></li>
+            <li><span class="m num">#48220 · 2:14 AM · Meridian Feed Co.</span><span>Nightly backup failed on the file server. Re-ran it, completed 2:51 AM. The disk is 91% full.</span><span class="st-line dec">Needs your decision</span></li>
+            <li><span class="m num">+ 7 more closed</span><span>Password resets (4), print queue (2), mapped drive (1).</span></li>
+          </ul>
+        </article>
+      </li>
+      <li>
+        <p class="paper-when">Every month</p>
+        <h3 class="paper-name" id="doc-report-name">The monthly report</h3>
+        <p class="paper-what">Numbers you can show your clients at their quarterly review.</p>
+        <article class="sheet-doc" aria-labelledby="doc-report-name" data-ui>
+          <p class="doc-title">Monthly coverage report · January</p>
+          <p style="color:var(--muted);font-size:14.5px">Prepared for Northwind IT, 31 nights</p>
+          <div class="bars" id="bars" aria-hidden="true"></div>
+          <p class="bars-cap">Tickets per night, January 1 to 31. Weekends carry more.</p>
+          <table class="kv">
+            <tr><th scope="row">Tickets handled</th><td>229</td></tr>
+            <tr><th scope="row">Median first response</th><td>6 minutes</td></tr>
+            <tr><th scope="row">Median resolution</th><td>38 minutes</td></tr>
+            <tr><th scope="row">Escalations to your on-call</th><td>7</td></tr>
+          </table>
+        </article>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec handle-sec" id="handle" aria-labelledby="handle-title">
+  <div class="wrap handle-grid">
+    <div>
+      <h2 class="sec-head" id="handle-title">What we fix overnight.</h2>
+      <p class="intro">We follow your runbook. Anything outside it, or anything that needs hands on site, waits for your team with a clear note.</p>
+    </div>
+    <div class="mods">
+      <div class="mod" data-rise>
+        <div class="proof" data-ui><div class="row"><span><span class="t">Password reset</span><br><span class="s num">11:42 PM · MFA re-enrolled</span></span><span class="tag ok">Closed</span></div></div>
+        <div><h3>Locked out at 11 PM</h3><p>Password resets, MFA re-enrollment and lockouts, done the way your runbook says, with identity checks.</p></div>
+      </div>
+      <div class="mod" data-rise>
+        <div class="proof" data-ui><div class="row"><span><span class="t">Outlook stuck on "Updating"</span><br><span class="s num">11:19 PM · profiles rebuilt</span></span><span class="tag ok">Closed</span></div><div class="row"><span><span class="t">Teams won't sign in</span><br><span class="s num">12:05 AM · cache cleared</span></span><span class="tag ok">Closed</span></div></div>
+        <div><h3>Microsoft 365, Outlook and Teams</h3><p>Mail that won't send, calendars that won't sync, Teams that won't start before an early meeting.</p></div>
+      </div>
+      <div class="mod" data-rise>
+        <div class="proof" data-ui><div class="row"><span><span class="t">RMM: backup failed</span><br><span class="s num">2:14 AM · re-run done 2:51 AM</span></span><span class="tag dec">Disk 91%</span></div></div>
+        <div><h3>RMM alerts that can't wait</h3><p>Failed backups, stopped services, full disks and offline devices: fixed, or flagged for a daytime decision.</p></div>
+      </div>
+      <div class="mod" data-rise>
+        <div class="proof" data-ui><div class="row"><span><span class="t">QuickBooks H202</span><br><span class="s num">9:58 PM · multi-user restored</span></span><span class="tag ok">Closed</span></div><div class="row"><span><span class="t">Drake won't open the return</span><br><span class="s num">10:21 PM · stuck update cleared</span></span><span class="tag ok">Closed</span></div></div>
+        <div><h3>QuickBooks and tax software</h3><p>Nine years of hosting it taught us these tickets by heart: company files, Database Server Manager, Drake, ATX and ProSeries.</p></div>
+      </div>
+      <div class="mod" data-rise>
+        <div class="proof" data-ui><div class="row"><span><span class="t">Suspected phishing</span><br><span class="s num">4:36 AM · on-call called</span></span><span class="tag esc">Escalated</span></div></div>
+        <div><h3>Security incidents go to your on-call</h3><p>We contain what your runbook allows, then call your on-call right away. Outages affecting a whole site go the same way.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec letter-sec" id="move" aria-labelledby="move-title">
+  <div class="letter-grid">
+    <div class="letter" data-rise>
+      <img class="mark" src="img/logo-mark.svg" alt="" width="54" height="41">
+      <h2 id="move-title">Nine years of 2 AM tickets.</h2>
+      <p>Since 2017 we have hosted QuickBooks, Sage and tax software for US accounting firms. Our team works in Kathmandu, so our customers' nights have always been our days.</p>
+      <p>Most of what we fixed overnight wasn't hard. It was urgent: a company file that wouldn't open, a printer before a filing deadline, a password at 11 PM.</p>
+      <p>That turned out to be what we do best. So <mark>we're moving out of hosting and putting the whole team on the after-hours desk</mark>, for MSPs and hosting providers, inside their tools and under their name.</p>
+      <p class="sign"><i>The Availclouds team</i><span>11 technicians, on your nights</span></p>
+    </div>
+    <div class="film" id="film" data-rise>
+      <video id="film-v" preload="none" playsinline poster="img/move-poster.webp" aria-label="Availclouds: we're making a big move. A 55-second film.">
+        <source src="video/availclouds-move.mp4" type="video/mp4">
+      </video>
+      <button class="film-play" type="button" id="film-play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Watch the 55-second film</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="sec n" id="who" aria-labelledby="who-title">
+  <div class="wrap who-grid">
+    <div class="who-pic" id="who-pic" aria-hidden="true">
+      <video class="on" muted loop playsinline preload="metadata" poster="img/night-loop-poster.webp" data-row="0"><source src="img/night-loop.webm" type="video/webm"><source src="img/night-loop.mp4" type="video/mp4"></video>
+      <img src="img/night-screen-45.webp" alt="" width="1600" height="2000" loading="lazy" data-row="1">
+      <img src="img/binders-45.webp" alt="" width="1600" height="2000" loading="lazy" data-row="2">
+    </div>
+    <div class="who-list">
+      <h2 id="who-title">Who the desk is for.</h2>
+      <ul class="rows" id="rows">
+        <li class="rowi on"><button type="button" aria-expanded="true" aria-controls="d0" data-row="0"><span class="nm">MSPs</span><span class="mt">6 PM to 8 AM Eastern</span></button>
+          <div class="desc" id="d0"><div><p>Your clients' tickets answered in your PSA and signed as your team, all night and all weekend. Plans start at $399 a month, after a two-week pilot.</p><a href="https://availclouds.com/msp/">How the desk works</a></div></div></li>
+        <li class="rowi"><button type="button" aria-expanded="false" aria-controls="d1" data-row="1"><span class="nm">QuickBooks hosting providers</span><span class="mt">Under your brand</span></button>
+          <div class="desc" id="d1"><div><p>Your hosting customers' after-hours tickets, worked in your help desk by people who have run these servers since 2017. We sign a non-solicitation agreement.</p><a href="https://availclouds.com/msp/#hosting-providers">For hosting providers</a></div></div></li>
+        <li class="rowi"><button type="button" aria-expanded="false" aria-controls="d2" data-row="2"><span class="nm">MSPs with CPA clients</span><span class="mt">January to April 15</span></button>
+          <div class="desc" id="d2"><div><p>Tax season runs late. QuickBooks, Drake, ATX and ProSeries tickets get answered the same night, so preparers keep working.</p><a href="https://availclouds.com/tax-season-it-support-cpa-firms/">Tax season after hours</a></div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="blog" aria-labelledby="blog-title">
+  <div class="wrap blog-grid">
+    <div data-rise>
+      <h2 class="sec-head" id="blog-title">From the blog.</h2>
+      <p class="all-posts"><a class="text-link" href="https://availclouds.com/blog/">All posts</a></p>
+    </div>
+    <ul class="posts" id="posts" data-source="build" data-rise>
+<!-- build:blog -->
+<li><a href="https://availclouds.com/tax-season-it-support-cpa-firms/">Tax season IT support after hours: how MSPs keep CPA clients running overnight</a><time datetime="2026-11-02">Nov 2, 2026</time><p>Tax season IT support doesn’t stop at 6 PM. How MSPs can cover CPA clients’ nights and weekends from January to April without burning out their own team.</p></li>
+<li><a href="https://availclouds.com/after-hours-support-quickbooks-hosting-providers/">Availclouds is moving out of hosting to run after-hours support for QuickBooks hosting providers and MSPs</a><time datetime="2026-10-16">Oct 16, 2026</time><p>Availclouds is moving out of hosting to run after-hours support for QuickBooks hosting providers and MSPs: 6 PM to 8 AM Eastern plus weekends, under their name.</p></li>
+<!-- /build:blog -->
+    </ul>
+  </div>
+</section>
+
+<section class="close" aria-labelledby="close-title">
+  <img class="close-pic" src="img/night-wide-169.webp" alt="The desk at night: a lamp, a laptop and binders, the city lit behind the blinds" width="2400" height="1350" loading="lazy">
+  <div class="wrap" data-rise>
+    <h2 id="close-title">Try the desk for two weeks for $299, then decide.</h2>
+    <p class="close-sub">It starts with a 20-minute call about your clients and your runbook.</p>
+    <div class="actions"><a class="btn btn-lamp" href="https://availclouds.com/msp/#book" data-track="close_book">Book a 20-minute call</a><a class="text-link" href="https://availclouds.com/msp/#pilot">How the pilot works</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="foot-top">
+    <div>
+      <a class="brand" href="https://availclouds.com/"><img src="img/logo-mark.svg" alt="" width="40" height="30"><b>Availclouds</b></a>
+      <p class="foot-line">The after-hours help desk for MSPs. 6&nbsp;PM to 8&nbsp;AM Eastern, and all weekend.</p>
+      <p class="foot-now" id="foot-now" hidden><i></i><span></span></p>
+    </div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div>
+        <p class="foot-h">The desk</p>
+        <ul>
+          <li><a href="https://availclouds.com/msp/">How the desk works</a></li>
+          <li><a href="https://availclouds.com/msp/#hosting-providers">For hosting providers</a></li>
+          <li><a href="https://availclouds.com/msp/#pilot">Pricing and pilot</a></li>
+          <li><a href="https://availclouds.com/msp/#book" data-track="foot_book">Book a 20-minute call</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-h">Hosting clients</p>
+        <ul>
+          <li><a href="https://availclouds.com/my-account/">Client login</a></li>
+          <li><a href="https://availclouds.com/contact-us/">Get support</a></li>
+          <li><a href="https://availclouds.com/after-hours-support-quickbooks-hosting-providers/">About the move</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-h">Talk to us</p>
+        <ul>
+          <li><a href="mailto:msp@availclouds.com">msp@availclouds.com</a></li>
+          <li><a href="tel:+15512030965">+1 (551) 203-0965</a></li>
+          <li><a href="https://availclouds.com/blog/">Blog</a></li>
+        </ul>
+        <address>Availclouds LLC<br>701 Rising Star Dr<br>Henderson, NV 89014</address>
+      </div>
+    </nav>
+  </div>
+  <p class="legal"><span>© <span id="yr">2026</span> Availclouds LLC</span><a href="https://availclouds.com/privacy-policy/">Privacy policy</a><a href="https://availclouds.com/terms-conditions/">Terms</a></p>
+</footer>
+
+<script src="js/world.js"></script>
+<script>
+(function () {
+  'use strict';
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(id) { return document.getElementById(id); }
+  var R = Math.PI / 180;
+
+  /* Subsolar point: USNO low-precision solar coordinates (declination + equation of time), from the Availclouds MSP page */
+  function sunAt(t) {
+    var d = (t - 946728000000) / 864e5, g = (357.529 + 0.98560028 * d) * R, q = 280.459 + 0.98564736 * d;
+    var L = (q + 1.915 * Math.sin(g) + 0.02 * Math.sin(2 * g)) * R, e = (23.439 - 3.6e-7 * d) * R;
+    var ra = Math.atan2(Math.cos(e) * Math.sin(L), Math.cos(L)) * 12 / Math.PI;
+    var dec = Math.asin(Math.sin(e) * Math.sin(L));
+    var eq = ((q / 15 - ra) % 24 + 24) % 24; if (eq > 12) eq -= 24;
+    var lon = -15 * ((((t % 864e5) + 864e5) % 864e5) / 36e5 - 12 + eq); lon = ((lon + 180) % 360 + 360) % 360 - 180;
+    return { dec: dec, lon: lon * R, latDeg: dec / R, lonDeg: lon, sd: Math.sin(dec), cd: Math.cos(dec) };
+  }
+
+  /* Simplified coastlines, [lon,lat,...] per ring, even-odd filled (from the Availclouds MSP page) */
+  var RINGS = window.AcWorld.RINGS;
+
+  var MW = 720, MH = 360, mask;
+  (function () {
+    var c = document.createElement('canvas'); c.width = MW; c.height = MH;
+    var x = c.getContext('2d'); x.beginPath();
+    RINGS.forEach(function (r) {
+      for (var i = 0; i < r.length; i += 2) x[i ? 'lineTo' : 'moveTo']((r[i] + 180) * 2, (90 - r[i + 1]) * 2);
+      x.closePath();
+    });
+    x.fill('evenodd');
+    mask = x.getImageData(0, 0, MW, MH).data;
+  })();
+  function wrap(lon) { return ((lon + 180) % 360 + 360) % 360 - 180; }
+  function land(lon, lat) {
+    var i = Math.floor((wrap(lon) + 180) * 2) % MW, j = Math.floor((90 - lat) * 2);
+    return j >= 0 && j < MH && mask[(j * MW + i) * 4 + 3] > 127;
+  }
+
+  var root = document.documentElement, hero = $('top'), sky = $('sky'), fxc = $('fx');
+  var bx = sky.getContext('2d'), fx = fxc.getContext('2d');
+  var pins = [].slice.call(hero.querySelectorAll('.pin'));
+  var doors = [].slice.call(hero.querySelectorAll('.door'));
+  var NY = [-74.006, 40.713], KTM = [85.324, 27.717];
+
+  /* The page's moment: Thu 8 Oct 2026, 7:20 PM in New York, 5:05 AM in Kathmandu. A fixed date keeps the seam's tilt gentle in every season. */
+  var T0 = Date.UTC(2026, 9, 8, 23, 20);
+  var C = sunAt(T0).lonDeg + 90;            /* where the sun is setting on the equator: the middle of the page */
+  var LEAN_MS = 50 * 6e4, DRIFT_MS = 55 * 6e4, DRIFT_PERIOD = 19000, INTRO_MS = 2600, INTRO_SPAN = 6 * 36e5;
+  /* the line never settles: two out-of-step swells, so the sway never repeats exactly */
+  function wander(ms) { var ph = ms / DRIFT_PERIOD * 6.2832; return Math.sin(ph) * 0.78 + Math.sin(ph * 2.37 + 1.3) * 0.22; }
+  var SEA = [[0, [11, 20, 48]], [0.3, [44, 30, 76]], [0.5, [214, 99, 106]], [0.68, [255, 192, 166]], [0.85, [249, 228, 216]], [1, [234, 242, 250]]];
+  var LND = [[0, [112, 142, 204]], [0.32, [178, 152, 216]], [0.5, [255, 216, 198]], [0.7, [248, 188, 168]], [1, [122, 148, 197]]];
+
+  var W = 0, H = 0, S = 1, Y0 = 88, AY = 0, SEAM = 0, PHONE = false, G = 8, dots = [], lights = [], quiet = [];
+  var lean = 0, leanTo = 0, lastT = null, lastBase = 0, dirty = true, start = performance.now(), raf = 0, visible = true;
+
+  function ss(a, b, v) { v = Math.min(1, Math.max(0, (v - a) / (b - a))); return v * v * (3 - 2 * v); }
+  function ramp(st, v) {
+    for (var i = 1; i < st.length; i++) if (v <= st[i][0]) {
+      var a = st[i - 1], b = st[i], k = (v - a[0]) / (b[0] - a[0]);
+      return [a[1][0] + (b[1][0] - a[1][0]) * k, a[1][1] + (b[1][1] - a[1][1]) * k, a[1][2] + (b[1][2] - a[1][2]) * k];
+    }
+    return st[st.length - 1][1];
+  }
+  function nightLeads() { return root.dataset.lead === 'night'; }
+
+  /* Desktop: equirectangular, centred on the sunset meridian. Phone: a closer crop placed just under (or over) a horizontal seam. */
+  function proj(lon, lat) {
+    if (PHONE) return [W / 2 + (lon - 5.5) * S, AY + (34 - lat) * S];
+    return [W / 2 + wrap(lon - C) * S, Y0 + (84 - lat) * S];
+  }
+  function latAt(y) { return PHONE ? 34 - (y - AY) / S : 84 - (y - Y0) / S; }
+  function lonAt(x) { return PHONE ? 5.5 + (x - W / 2) / S : C + (x - W / 2) / S; }
+  /* Real terminator; latitude is softened past the mid-latitudes so the seam leans instead of hooking at the poles */
+  function soft(lat) { var l = 58 * Math.tanh(lat / 58) * R; return [Math.sin(l), Math.cos(l)]; }
+  function lightD(sl, cl, lonR, s) { return ss(-0.25, 0.2, sl * s.sd + cl * s.cd * Math.cos(lonR - s.lon)); }
+  /* the dawn line wraps to both page edges: ease it toward that half's own light so the middle seam stays the one divider */
+  /* VIG widens the day-side fade while the intro sweeps, so only the 6 PM seam crosses the page */
+  var VIG = 140;
+  function edge(x, L) { var e = ss(0, x < W / 2 ? VIG : 140, Math.min(x, W - x)); return L * (0.35 + 0.65 * e) + (x < W / 2 ? 0.65 + 0.35 * (VIG - 140) / (W * 0.5) : 0) * (1 - e); }
+  function lightM(x, y) {
+    var v = y + 9 * Math.sin(x / W * 4.4 + 0.6);
+    return nightLeads() ? ss(SEAM - 42, SEAM + 42, v) : ss(SEAM + 42, SEAM - 42, v);
+  }
+
+  function quietAt(x, y) {
+    var q = 1;
+    for (var k = 0; k < quiet.length; k++) {
+      var r = quiet[k], dx = Math.max(r[0] - x, 0, x - r[2]), dy = Math.max(r[1] - y, 0, y - r[3]);
+      q = Math.min(q, 0.12 + 0.88 * Math.min(1, Math.sqrt(dx * dx + dy * dy) / 60));
+    }
+    return q;
+  }
+
+  function layout() {
+    PHONE = innerWidth <= 860;
+    W = hero.clientWidth; H = hero.clientHeight;
+    var dpr = Math.min(devicePixelRatio || 1, 2);
+    [sky, fxc].forEach(function (c) { c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); });
+    bx.setTransform(dpr, 0, 0, dpr, 0, 0); fx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var hb = hero.getBoundingClientRect();
+    if (PHONE) {
+      S = W / 190; G = 6;
+      SEAM = (nightLeads() ? doors[0] : doors[1]).getBoundingClientRect().top - hb.top;
+      AY = nightLeads() ? SEAM - 62 : SEAM + 52;
+    } else { S = W / 366; G = W > 1500 ? 12 : 8; Y0 = 88; } /* the sea is smoothed when drawn, so a coarser grid on wide screens looks the same and costs half */
+    quiet = [].slice.call(hero.querySelectorAll('[data-quiet]')).map(function (el) {
+      var r = el.getBoundingClientRect(); return [r.left - hb.left, r.top - hb.top, r.right - hb.left, r.bottom - hb.top];
+    }).filter(function (r) { return r[2] > r[0] && r[3] > r[1]; });
+    pins.forEach(function (p) {
+      var xy = proj(+p.dataset.lon, +p.dataset.lat);
+      p.style.transform = 'translate(' + xy[0].toFixed(1) + 'px,' + xy[1].toFixed(1) + 'px)';
+    });
+    /* pins are quiet zones too, measured after they move */
+    pins.forEach(function (p) {
+      var r = p.querySelector('.pin-card').getBoundingClientRect();
+      if (r.width && r.height) quiet.push([r.left - hb.left, r.top - hb.top, r.right - hb.left, r.bottom - hb.top]); /* hidden on phones */
+    });
+    var pitch = PHONE ? 6 : Math.max(7, Math.round(S * 1.95));
+    dots = []; lights = [];
+    for (var y = pitch / 2; y < H; y += pitch) {
+      var lat = latAt(y); if (lat > 83 || lat < -58) continue;
+      var sc = soft(lat);
+      for (var x = pitch / 2; x < W; x += pitch) {
+        var lon = lonAt(x);
+        if (!land(lon, lat)) continue;
+        var d = { x: x, y: y, sl: sc[0], cl: sc[1], lon: lon * R, q: quietAt(x, y), L: 1 };
+        dots.push(d);
+        var hsh = Math.abs(Math.sin(x * 12.9898 + y * 78.233) * 43758.5453) % 1;
+        if (hsh < 0.15 && lat < 62 && lat > -45) { d.ph = hsh * 40; lights.push(d); }
+      }
+    }
+    dirty = true;
+  }
+
+  var seaTmp = document.createElement('canvas');
+  function drawBase(t) {
+    var s = sunAt(t), gw = Math.ceil(W / G) + 2, gh = Math.ceil(H / G) + 2, img = bx.createImageData(gw, gh), px = img.data;
+    for (var j = 0; j < gh; j++) {
+      var y = j * G, sc = PHONE ? null : soft(latAt(y));
+      for (var i = 0; i < gw; i++) {
+        var x = i * G, L = PHONE ? lightM(x, y) : edge(x, lightD(sc[0], sc[1], lonAt(x) * R, s)), o = (j * gw + i) * 4;
+        /* the dawn line wraps to both page edges: keep it as a soft vignette so the middle seam stays the divider */
+        var c = ramp(SEA, L);
+        px[o] = c[0]; px[o + 1] = c[1]; px[o + 2] = c[2]; px[o + 3] = 255;
+      }
+    }
+    seaTmp.width = gw; seaTmp.height = gh; seaTmp.getContext('2d').putImageData(img, 0, 0);
+    bx.imageSmoothingEnabled = true; bx.imageSmoothingQuality = 'high';
+    bx.drawImage(seaTmp, 0, 0, gw, gh, -G / 2, -G / 2, gw * G, gh * G);
+
+    /* The sun's warmth over the day side */
+    var sp = PHONE ? [W * 0.8, (nightLeads() ? H * 0.82 : H * 0.18)] : proj(s.lonDeg, s.latDeg), rad = PHONE ? W * 0.9 : W * 0.34;
+    var g = bx.createRadialGradient(sp[0], sp[1], 0, sp[0], sp[1], rad);
+    g.addColorStop(0, 'rgba(255, 222, 160, 0.42)'); g.addColorStop(0.45, 'rgba(255, 232, 190, 0.16)'); g.addColorStop(1, 'rgba(255, 236, 200, 0)');
+    bx.fillStyle = g; bx.fillRect(0, 0, W, H);
+
+    /* Land dots, batched by quantised colour */
+    /* grouped by a number (48 light steps x 21 quiet steps), so each colour string is built once per group, not once per dot */
+    var groups = {}, k, key, r = PHONE ? 1.15 : Math.max(1.2, S * 0.33);
+    for (k = 0; k < dots.length; k++) {
+      var d = dots[k]; d.L = PHONE ? lightM(d.x, d.y) : edge(d.x, lightD(d.sl, d.cl, d.lon, s));
+      key = Math.round(Math.min(1, Math.max(0, d.L)) * 47) * 21 + Math.round(d.q * 20);
+      (groups[key] || (groups[key] = [])).push(d);
+    }
+    for (key in groups) {
+      var list = groups[key], col = ramp(LND, Math.floor(key / 21) / 47);
+      bx.fillStyle = 'rgba(' + Math.round(col[0]) + ',' + Math.round(col[1]) + ',' + Math.round(col[2]) + ',' + ((key % 21) / 20) + ')'; bx.beginPath();
+      for (k = 0; k < list.length; k++) { bx.moveTo(list[k].x + r, list[k].y); bx.arc(list[k].x, list[k].y, r, 0, 6.2832); }
+      bx.fill();
+    }
+    setPinTimes(t);
+  }
+
+  var fmts = {};
+  function clock(t, tz) {
+    fmts[tz] = fmts[tz] || new Intl.DateTimeFormat('en-US', { timeZone: tz, hour: 'numeric', minute: '2-digit' });
+    return fmts[tz].format(new Date(t)).replace(/ /g, ' ');
+  }
+  var pinTimes = [].slice.call(hero.querySelectorAll('[data-tz]')), lastPin = '';
+  function nyOffset(t) {
+    var o = {}; new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hourCycle: 'h23', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' })
+      .formatToParts(new Date(t)).forEach(function (p) { o[p.type] = p.value; });
+    return Date.UTC(+o.year, o.month - 1, +o.day, +o.hour, +o.minute) - Math.floor(t / 6e4) * 6e4;
+  }
+  var KTM_SHIFT = nyOffset(T0) - nyOffset(Date.now()); /* +1 hour from November to March, 0 in summer */
+  function setPinTimes(t) {
+    var s = pinTimes.map(function (el) { return clock(el.dataset.tz === 'Asia/Kathmandu' ? t + KTM_SHIFT : t, el.dataset.tz); });
+    if (s.join() === lastPin) return; lastPin = s.join();
+    pinTimes.forEach(function (el, i) { el.textContent = s[i]; });
+  }
+
+  /* ---------- Foreground: town lights, the hours of the day, and one example ticket ---------- */
+  var CYCLE = 9400, OUT = 1600, WORK = 800, BACK = 1500, LINGER = 2400;
+  var roleNY = $('role-ny'), roleKTM = $('role-ktm'), roleState = '';
+  function bez(a, c, b, t) { var u = 1 - t; return [u * u * a[0] + 2 * u * t * c[0] + t * t * b[0], u * u * a[1] + 2 * u * t * c[1] + t * t * b[1]]; }
+  function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+  function trail(a, c, b, t, rgb) {
+    var t0 = Math.max(0, t - 0.28), n = 14, prev = bez(a, c, b, t0);
+    fx.lineWidth = 2.2; fx.lineCap = 'round';
+    for (var i = 1; i <= n; i++) {
+      var pt = bez(a, c, b, t0 + (t - t0) * i / n);
+      fx.strokeStyle = 'rgba(' + rgb + ',' + (i / n).toFixed(3) + ')';
+      fx.beginPath(); fx.moveTo(prev[0], prev[1]); fx.lineTo(pt[0], pt[1]); fx.stroke(); prev = pt;
+    }
+    fx.fillStyle = 'rgba(' + rgb + ',0.22)'; fx.beginPath(); fx.arc(prev[0], prev[1], 9, 0, 6.2832); fx.fill();
+    fx.fillStyle = 'rgb(' + rgb + ')'; fx.beginPath(); fx.arc(prev[0], prev[1], 3.2, 0, 6.2832); fx.fill();
+  }
+  function ring(p, k, rgb, max) {
+    fx.strokeStyle = 'rgba(' + rgb + ',' + (0.9 * (1 - k)).toFixed(3) + ')';
+    fx.lineWidth = 1.6; fx.beginPath(); fx.arc(p[0], p[1], 5 + max * k, 0, 6.2832); fx.stroke();
+  }
+  function roles(state) {
+    if (state === roleState) return; roleState = state;
+    roleNY.textContent = state === 'out' ? 'Example: a ticket at 7:20 PM' : state === 'back' ? 'Reply signed as your team' : "Your client's office";
+    roleKTM.textContent = state === 'work' ? 'Working it in your PSA' : 'Our desk, on shift';
+    roleNY.classList.toggle('hot', state === 'out' || state === 'back');
+    roleKTM.classList.toggle('hot', state === 'work');
+  }
+  function label(h) { return h === 0 ? 'Midnight' : h === 12 ? 'Noon' : (h % 12) + (h < 12 ? ' AM' : ' PM'); }
+
+  /* ---------- The 6 PM line, alive: a rippling glow and sparks crossing into the night ---------- */
+  var sparks = [], lastFx = 0;
+  /* where the line is: its x for every 4px row on desktop, its y for every 4px column on phones */
+  function seamAt(s) {
+    var i, n, out;
+    if (PHONE) {
+      n = Math.ceil(W / 4) + 1; out = new Float32Array(n);
+      for (i = 0; i < n; i++) out[i] = SEAM - 9 * Math.sin(i * 4 / W * 4.4 + 0.6);
+      return out;
+    }
+    n = Math.ceil(H / 4) + 1; out = new Float32Array(n);
+    for (i = 0; i < n; i++) {
+      var sc = soft(latAt(i * 4)), c = Math.max(-1, Math.min(1, (-0.025 - sc[0] * s.sd) / (sc[1] * s.cd)));
+      out[i] = W / 2 + wrap(s.lonDeg + Math.acos(c) / R - C) * S;
+    }
+    return out;
+  }
+  function drawSeam(now, s) {
+    var pts = seamAt(s), n = pts.length, dt = lastFx ? Math.min(64, now - lastFx) : 16, i, k, p;
+    lastFx = now;
+    var from = PHONE ? 0 : Math.max(0, Math.floor((Y0 - 40) / 4)), to = PHONE ? n : Math.min(n, Math.ceil((H - 44) / 4)), len = to - from;
+    function wob(j) { var u = j * 4; return Math.sin(u * 0.016 + now * 0.0024) * 5 + Math.sin(u * 0.043 - now * 0.0041) * 2.4; }
+    function at(j) { var w = wob(j); return PHONE ? [j * 4, pts[j] + w] : [pts[j] + w, j * 4]; }
+    fx.save();
+    fx.globalCompositeOperation = 'lighter'; fx.lineCap = 'round'; fx.lineJoin = 'round';
+    /* the glow: a wide band that breathes and ripples with the line */
+    fx.beginPath();
+    for (i = from; i < to; i++) { p = at(i); if (i === from) fx.moveTo(p[0], p[1]); else fx.lineTo(p[0], p[1]); }
+    var br = 0.7 + 0.3 * Math.sin(now * 0.0019);
+    /* a soft band of sunset light, no hard core: it reads as glow, not as a wire */
+    fx.lineWidth = 34; fx.strokeStyle = 'rgba(255, 92, 96,' + (0.07 * br).toFixed(3) + ')'; fx.stroke();
+    fx.lineWidth = 16; fx.strokeStyle = 'rgba(255, 128, 98,' + (0.12 * br).toFixed(3) + ')'; fx.stroke();
+    /* sparks: the queue crossing the line, drifting into the night and fading before the text */
+    var due = (PHONE ? 0.014 : 0.034) * dt;
+    while (due > 0 && sparks.length < 170) {
+      if (due >= 1 || Math.random() < due) {
+        var j = from + Math.floor(Math.random() * len), q = at(j);
+        sparks.push({ x: q[0], y: q[1], v: 0.03 + Math.random() * 0.06, d: (Math.random() - 0.5) * 0.022, age: 0, life: 1000 + Math.random() * 1000, r: Math.random() < 0.18 ? 1.9 : 1.1 });
+      }
+      due -= 1;
+    }
+    for (i = sparks.length - 1; i >= 0; i--) {
+      var sp = sparks[i]; sp.age += dt;
+      if (sp.age > sp.life) { sparks.splice(i, 1); continue; }
+      if (PHONE) { sp.y += sp.v * dt; sp.x += sp.d * dt; } else { sp.x += sp.v * dt; sp.y += sp.d * dt; }
+      var al = (1 - sp.age / sp.life) * Math.min(1, sp.age / 140) * quietAt(sp.x, sp.y);
+      if (al < 0.03) continue;
+      fx.fillStyle = 'rgba(255, 206, 138,' + al.toFixed(3) + ')';
+      fx.fillRect(sp.x - sp.r, sp.y - sp.r, sp.r * 2, sp.r * 2);
+    }
+    fx.restore();
+  }
+
+  var lb = [];
+  function drawFx(now, t) {
+    fx.clearRect(0, 0, W, H);
+    var i, s = sunAt(t);
+    /* Town lights on the night side, breathing slowly */
+    for (i = 0; i < 8; i++) lb[i] = [];
+    for (i = 0; i < lights.length; i++) {
+      var d = lights[i]; if (d.L > 0.25) continue;
+      var a = (1 - d.L / 0.25) * d.q * (reduce ? 0.62 : 0.38 + 0.5 * (0.5 + 0.5 * Math.sin(now / 1400 + d.ph)));
+      var bi = Math.min(7, Math.floor(a * 8)); if (bi > 0) lb[bi].push(d);
+    }
+    fx.fillStyle = '#FFD98A';
+    for (i = 1; i < 8; i++) {
+      if (!lb[i].length) continue;
+      fx.globalAlpha = (i + 0.5) / 8; fx.beginPath();
+      for (var m = 0; m < lb[i].length; m++) fx.rect(lb[i][m].x - 1.2, lb[i][m].y - 1.2, 2.4, 2.4);
+      fx.fill();
+    }
+    fx.globalAlpha = 1;
+    if (!reduce) drawSeam(now, s);
+
+    /* The hours: every 15 degrees is an hour of sun time, so the page reads 6 AM, noon, 6 PM at the seam, midnight, 6 AM */
+    if (!PHONE) {
+      var xs = W / 2 + wrap(s.lonDeg + 90 - C) * S, yb = H - 30, scB = soft(latAt(yb));
+      fx.font = '600 13px "Red Hat Display", system-ui, sans-serif'; fx.textAlign = 'center'; fx.textBaseline = 'middle';
+      for (var k = -14; k <= 14; k++) {
+        var x = xs + k * 15 * S; if (x < 8 || x > W - 8) continue;
+        var hr = ((18 + k) % 24 + 24) % 24, day = lightD(scB[0], scB[1], lonAt(x) * R, s) > 0.5;
+        fx.strokeStyle = day ? 'rgba(14, 26, 54, 0.05)' : 'rgba(190, 212, 242, 0.06)'; fx.lineWidth = 1;
+        fx.beginPath(); fx.moveTo(Math.round(x) + 0.5, Y0 - 6); fx.lineTo(Math.round(x) + 0.5, yb - 16); fx.stroke();
+        fx.strokeStyle = day ? 'rgba(14, 26, 54, 0.35)' : 'rgba(190, 212, 242, 0.4)';
+        fx.beginPath(); fx.moveTo(Math.round(x) + 0.5, yb - 14); fx.lineTo(Math.round(x) + 0.5, yb - (hr % 3 ? 10 : 6)); fx.stroke();
+        if (hr % 3 === 0 && x > 34 && x < W - 34) {
+          fx.fillStyle = hr === 18 ? (day ? '#A8322C' : '#FF8A84') : day ? 'rgba(14, 26, 54, 0.72)' : 'rgba(201, 219, 245, 0.78)';
+          fx.fillText(label(hr), x, yb + 4);
+        }
+      }
+    }
+
+    /* One example ticket: New York to Kathmandu, worked, and answered back under the MSP's name */
+    var a0 = proj(NY[0], NY[1]), b0 = proj(KTM[0], KTM[1]), dx = b0[0] - a0[0], dy = b0[1] - a0[1];
+    var bow = PHONE ? 26 : Math.min(170, Math.sqrt(dx * dx + dy * dy) * 0.24);
+    var c0 = [(a0[0] + b0[0]) / 2, Math.min(a0[1], b0[1]) - bow];
+    fx.strokeStyle = reduce ? 'rgba(251, 164, 26, 0.55)' : 'rgba(201, 227, 246, 0.24)'; fx.lineWidth = 1.3; fx.setLineDash([2, 5]);
+    fx.beginPath(); fx.moveTo(a0[0], a0[1]); fx.quadraticCurveTo(c0[0], c0[1], b0[0], b0[1]); fx.stroke(); fx.setLineDash([]);
+    if (reduce) { roles('rest'); return; }
+    if (now - start < INTRO_MS + 400) { roles('rest'); return; }
+    var p = (now - start - INTRO_MS - 400) % CYCLE;
+    if (p < OUT) { trail(a0, c0, b0, ease(p / OUT), '220,235,255'); roles('out'); }
+    else if (p < OUT + WORK) { ring(b0, (p - OUT) / WORK, '251,164,26', 18); roles('work'); }
+    else if (p < OUT + WORK + BACK) { trail(b0, c0, a0, ease((p - OUT - WORK) / BACK), '251,164,26'); roles('work'); }
+    else if (p < OUT + WORK + BACK + LINGER) { ring(a0, Math.min(1, (p - OUT - WORK - BACK) / LINGER * 1.6), '251,164,26', 16); roles('back'); }
+    else roles('rest');
+  }
+
+  function frame(now) {
+    raf = 0;
+    if (!visible) return;
+    lean = reduce ? leanTo : lean + (leanTo - lean) * 0.07;
+    if (Math.abs(leanTo - lean) < 0.002) lean = leanTo;
+    /* On load the sunset line sweeps in from the right and settles on 6 PM; after that it keeps drifting, and leans toward the door you point at */
+    var ip = reduce ? 1 : Math.min(1, (now - start) / INTRO_MS), ie = 1 - Math.pow(1 - ip, 3), intro = ie * INTRO_SPAN - INTRO_SPAN;
+    VIG = 140 + (1 - ie) * W * 0.5;
+    if (ip >= 1 && hero.dataset.phase !== 'live') hero.dataset.phase = 'live';
+    var t = T0 + intro + (PHONE || reduce ? 0 : DRIFT_MS * wander(now - start - INTRO_MS) * Math.min(1, Math.max(0, (now - start - INTRO_MS) / 4000))) - (PHONE ? 0 : lean * LEAN_MS);
+    /* the map under the line is redrawn at most ~30 times a second; the ribbon, pulses and sparks on top run every frame */
+    if (dirty || lastT === null || (Math.abs(t - lastT) > (ip < 1 ? 1000 : 40000) && now - lastBase > 48)) { drawBase(t); lastT = t; lastBase = now; dirty = false; }
+    drawFx(now, t);
+    if (!reduce || lean !== leanTo) raf = requestAnimationFrame(frame);
+  }
+  function kick() { if (!raf && visible) raf = requestAnimationFrame(frame); }
+
+  /* ---------- The signature: lean toward a door and its light grows ---------- */
+  function setLean(side) {
+    leanTo = side === 'day' ? 1 : side === 'night' ? -1 : 0;
+    hero.dataset.lean = side || '';
+    kick();
+  }
+  doors.forEach(function (door) {
+    var side = door.dataset.side;
+    door.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') setLean(side); });
+    door.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') setLean(door.contains(document.activeElement) ? side : null); });
+    door.addEventListener('focusin', function () { setLean(side); });
+    door.addEventListener('focusout', function (e) { if (!door.contains(e.relatedTarget)) setLean(door.matches(':hover') ? side : null); });
+  });
+  root.dataset.lead = 'day';
+  layout();
+  hero.classList.add('ready');
+  hero.dataset.phase = reduce ? 'live' : 'intro'; /* intro: the line sweeps in; live: it sways */
+  kick();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { layout(); kick(); });
+  var rt;
+  addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { layout(); kick(); }, 140); });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; kick(); }).observe(hero);
+
+})();
+
+</script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* State map. Every machine on the page keeps one named state on its element, so CSS, tests and agents read it in one place:
+       #top[data-phase]      intro -> live                      the hero's line sweeps in, then sways (set by the hero script)
+       #top[data-lean]       '' | day | night                   which half the pointer or keyboard focus is in
+       #stage[data-mode]     live | story                       the map follows the clock, or plays the example night
+       #stage[data-hour]     now | picked                       the slider follows the clock, or shows an hour the visitor chose
+       #desk[data-state]     live | queue | note                who-has-the-queue line, the night's queue, the 8 AM note
+       #night[data-state]    waiting | playing | paused | ended | manual   the example night (manual: reduced motion, steps only)
+       #film[data-state]     poster | playing | paused | ended  the 55-second film
+       #posts[data-source]   build | live                       the blog list baked at build time, or refreshed from WordPress
+       .rowi button[aria-expanded]                              the open "who the desk is for" row */
+  window.dataLayer = window.dataLayer || [];
+  function track(ev, data) { var o = { event: ev }; for (var k in data) o[k] = data[k]; window.dataLayer.push(o); }
+  $('yr').textContent = new Date().getFullYear();
+
+  /* ---------- Time, by IANA zone (DST-safe) ---------- */
+  var NYZ = 'America/New_York', KTZ = 'Asia/Kathmandu', fmts = {};
+  function fmt(tz, o) { var k = tz + JSON.stringify(o); return fmts[k] || (fmts[k] = new Intl.DateTimeFormat('en-US', Object.assign({ timeZone: tz }, o))); }
+  function parts(t, tz) { var o = {}; fmt(tz, { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hourCycle: 'h23', weekday: 'short' }).formatToParts(new Date(t)).forEach(function (p) { o[p.type] = p.value; }); return o; }
+  function clock(t, tz) { return fmt(tz, { hour: 'numeric', minute: '2-digit', hour12: true }).format(new Date(t)).replace(/\s/g, ' '); }
+  function clockHTML(t, tz) { var c = clock(t, tz).split(' '); return c[0] + '<span class="ap">' + c[1] + '</span>'; }
+  /* Epoch ms for a wall-clock time in a zone */
+  function zoned(y, mo, d, h, mi, tz) {
+    var guess = Date.UTC(y, mo - 1, d, h, mi);
+    for (var i = 0; i < 2; i++) { var p = parts(guess, tz), asUTC = Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour, +p.minute); guess += Date.UTC(y, mo - 1, d, h, mi) - asUTC; }
+    return guess;
+  }
+  function deskOn(t) { var p = parts(t, NYZ), m = +p.hour * 60 + +p.minute, wd = p.weekday; if (wd === 'Sat' || wd === 'Sun') return true; if (wd === 'Fri' && m >= 1080) return true; if (wd === 'Mon' && m < 480) return true; return m >= 1080 || m < 480; }
+
+  /* ---------- The stage: Northwind IT's help desk (example data), at the hour picked or through the example night ---------- */
+  var stage = $('stage'), desk = $('desk');
+  var mode = 'live', liveT = Date.now(), storyP = 0, beat = 0, visible = true, raf = 0;
+  var hour = $('hour'), hourOut = $('hour-out');
+  /* The example night: the same tickets as "What the night leaves behind", and it ends on its handoff note (9 closed, 1 escalated, 1 decision).
+     m = New York minutes from midnight (past 1440 is the next morning), r = minutes from arrival to the reply or the call */
+  var NIGHT = [
+    { id: 48208, m: 1152, r: 11, out: 'ok',  title: 'Password reset, locked out', client: 'Harbor Point CPA', fix: 'I reset your password, signed out the old sessions and re-enrolled MFA.' },
+    { id: 48210, m: 1230, r: 18, out: 'ok',  title: 'VPN won’t connect', client: 'Alder Street Dental', fix: 'I reinstalled the VPN client and the tunnel is up.' },
+    { id: 48213, m: 1300, r: 18, out: 'ok',  title: 'QuickBooks won’t open in multi-user mode', client: 'Harbor Point CPA', fix: 'I restarted the database service and confirmed multi-user access.' },
+    { id: 48217, m: 1372, r: 27, out: 'ok',  title: 'Outlook stuck on “Updating”', client: 'Harbor Point CPA', fix: 'Both mail profiles were rebuilding a corrupted cache. I rebuilt them and confirmed send and receive.' },
+    { id: 48218, m: 1445, r: 12, out: 'ok',  title: 'Teams won’t sign in', client: 'Quarry Lane HOA', fix: 'I cleared the Teams cache and you’re signed in again.' },
+    { id: 48219, m: 1480, r: 10, out: 'ok',  title: 'Mapped drive missing', client: 'Meridian Feed Co.', fix: 'I re-mapped the shared drive from your policy.' },
+    { id: 48220, m: 1574, r: 37, out: 'dec', title: 'Nightly backup failed on the file server', client: 'Meridian Feed Co.', fix: 'I re-ran the backup and it completed at 2:51 AM. The disk is 91% full: your team needs to decide on more space.' },
+    { id: 48221, m: 1600, r: 9,  out: 'ok',  title: 'Password reset', client: 'North Fork Vineyards', fix: 'I reset your password and signed out every session.' },
+    { id: 48222, m: 1625, r: 16, out: 'ok',  title: 'Scanner not saving to the shared folder', client: 'Alder Street Dental', fix: 'I restarted the scan service and a test scan saved.' },
+    { id: 48224, m: 1710, r: 6,  out: 'esc', title: 'Suspected phishing', client: 'Harbor Point CPA', fix: 'Password reset, every session signed out, MFA re-enrolled. I called your on-call, Sam, per your runbook.' },
+    { id: 48226, m: 1810, r: 14, out: 'ok',  title: 'MFA re-enrollment, new phone', client: 'Quarry Lane HOA', fix: 'Your new phone is enrolled; the old one is removed.' }
+  ];
+  /* your team's day: st is where each ticket stands by early afternoon (the slider only shows those already in) */
+  var DAY = [
+    { m: 481, title: 'Read the night desk’s handoff note', client: 'Northwind IT', tech: 'Alex', st: 'ok' },
+    { m: 492, title: 'Disk 91% full: decision from the night note', client: 'Meridian Feed Co.', tech: 'Alex', st: 'ok' },
+    { m: 517, title: 'Outlook asks for a password again', client: 'Quarry Lane HOA', tech: 'Priya', st: 'ok' },
+    { m: 545, title: 'Printer jam, 2nd floor', client: 'Alder Street Dental', tech: 'Jordan', st: 'work' },
+    { m: 610, title: 'New laptop setup', client: 'Quarry Lane HOA', tech: 'Priya', st: 'new' },
+    { m: 702, title: 'SharePoint access', client: 'Harbor Point CPA', tech: 'Alex', st: 'dec' },
+    { m: 790, title: 'Shared calendar not syncing', client: 'North Fork Vineyards', tech: 'Priya', st: 'work' },
+    { m: 840, title: 'Wi-Fi drops in a meeting room', client: 'Meridian Feed Co.', tech: 'Jordan', st: 'work' }
+  ];
+  var LABEL = { new: 'New', work: 'Working', ok: 'Closed', dec: 'Decision', esc: 'Escalated' };
+  var T0 = AcWorld.NIGHT_T0, T1 = AcWorld.NIGHT_T1; /* the example night: 6 PM to 8 AM Eastern, in January */
+  function storyTime() { return T0 + storyP * (T1 - T0); }
+  function nyMin(t) { var p = parts(t, NYZ); return +p.hour * 60 + +p.minute; }
+  function wall(m) { m = ((m % 1440) + 1440) % 1440; var h = Math.floor(m / 60), mi = m % 60; return (h % 12 || 12) + ':' + (mi < 10 ? '0' : '') + mi + ' ' + (h < 12 ? 'AM' : 'PM'); }
+  /* while the night plays (40 story-minutes a second) each status is held long enough to read; the reply times shown stay the real ones */
+  function stateOf(k, now) { var story = mode === 'story', n = story ? 14 : 4, w = story ? Math.max(k.r, 40) : k.r; return now < k.m + n ? 'new' : now < k.m + w ? 'work' : k.out; }
+
+  /* rows are kept by ticket, so only a new ticket animates in and a status change only recolours its tag */
+  var queue = $('queue'), rowEls = {}, view = '', last = {};
+  function setText(id, html) { if (last[id] !== html) { $(id).innerHTML = html; last[id] = html; } }
+  function bump(html) { /* the tally: a number that changes gives a small bump */
+    if (last.tally === html) return; var old = last.tally || ''; $('tally').innerHTML = html; last.tally = html;
+    [].forEach.call($('tally').querySelectorAll('b'), function (b, i) { if (old && old.split('<b>')[i + 1] && old.split('<b>')[i + 1].split('<')[0] !== b.textContent) b.classList.add('bump'); });
+  }
+  function nightRows(list, now) {
+    if (view !== 'night') { queue.textContent = ''; rowEls = {}; view = 'night'; }
+    Object.keys(rowEls).forEach(function (id) { if (!list.some(function (k) { return String(k.id) === id; })) { rowEls[id].remove(); delete rowEls[id]; } });
+    list.forEach(function (k) {
+      var li = rowEls[k.id];
+      if (!li) {
+        li = document.createElement('li'); li.className = 'row' + (reduce ? '' : ' arrive');
+        li.innerHTML = '<span class="tm">' + wall(k.m) + '</span><span class="ti">' + k.title + '</span><span class="tag"></span><span class="cl">#' + k.id + ' · ' + k.client + '</span>';
+        queue.insertBefore(li, queue.firstChild); rowEls[k.id] = li;
+      }
+      var st = stateOf(k, now);
+      if (li.dataset.st !== st) { li.dataset.st = st; var tg = li.querySelector('.tag'); tg.className = 'tag ' + st; tg.textContent = LABEL[st]; }
+    });
+    var idle = queue.querySelector('.idle');
+    if (!idle) { idle = document.createElement('li'); idle.className = 'idle'; idle.innerHTML = '<i></i><span></span>'; }
+    queue.appendChild(idle); /* always last */
+    idle.lastChild.textContent = list.length ? 'Watching the queue' : 'The office closed at 6 PM. Watching the queue';
+  }
+  function dayRows(list) {
+    var html = list.length ? list.slice().reverse().map(function (k) {
+      return '<li class="row"><span class="tm">' + wall(k.m) + '</span><span class="ti">' + k.title + '</span><span class="tag ' + k.st + '">' + (k.st === 'dec' ? 'Waiting on client' : LABEL[k.st]) + '</span><span class="cl">' + k.client + ' · ' + k.tech + '</span></li>';
+    }).join('') : '<li class="empty">The office opens at 8 AM. The night desk’s handoff note is waiting.</li>';
+    if (view !== 'day:' + html) { queue.innerHTML = html; rowEls = {}; view = 'day:' + html; }
+  }
+  function renderDesk(t) {
+    var story = mode === 'story', m = story ? 1080 + storyP * 840 : nyMin(t), on = story ? storyP < 1 : deskOn(t);
+    var note = story && storyP > 0.93, mm = !story && m < 480 ? m + 1440 : m;
+    setText('t-ny', clockHTML(t, NYZ)); setText('t-ktm', clockHTML(t, KTZ));
+    var dayNow = !on || note;
+    setText('w-ny', dayNow ? 'Your team: on shift' : 'Your team: off'); $('w-ny').className = 'who' + (dayNow ? ' on' : '');
+    setText('w-ktm', dayNow ? 'Our desk: off' : 'Our desk: on shift'); $('w-ktm').className = 'who' + (dayNow ? '' : ' on');
+    var pill = note ? ['Office open · handoff sent 8:00 AM', 'Handoff sent'] : on ? ['After hours · night desk on', 'Night desk on'] : ['Office open · 4 techs online', 'Office open'];
+    setText('desk-st', '<i></i><span class="pl">' + pill[0] + '</span><span class="ps">' + pill[1] + '</span>'); $('desk-st').className = 'pill' + (on && !note ? '' : ' day');
+    if (on || note) {
+      var list = NIGHT.filter(function (k) { return k.m <= mm; }), done = list.filter(function (k) { return stateOf(k, mm) === k.out; });
+      var count = function (o) { return done.filter(function (k) { return k.out === o; }).length; };
+      setText('q-head', 'Tonight’s queue');
+      nightRows(list, mm);
+      if (note) {
+        bump('<div><b>' + count('ok') + '</b><span>closed</span></div><div><b>' + count('esc') + '</b><span>escalated</span></div><div><b>' + count('dec') + '</b><span>need your decision</span></div>');
+        setText('d-head', 'Handoff note');
+        setText('detail', '<div class="card"><p class="subj">Morning handoff for Northwind IT</p><p class="meta">6:00 PM to 8:00 AM Eastern · sent 8:00 AM</p><div class="chips"><span class="tag ok">9 closed</span><span class="tag esc">1 escalated</span><span class="tag dec">1 needs your decision</span></div><p>Every reply went out as Northwind IT. Full notes are on each ticket.</p></div><p class="by">Your team picks up from here at <b>8:00 AM</b>.</p>');
+      } else {
+        bump('<div><b>' + list.length + '</b><span>tickets tonight</span></div><div><b>' + count('ok') + '</b><span>closed</span></div><div><b>' + count('esc') + '</b><span>escalated</span></div>');
+        var lastDone = done.slice().sort(function (a, b) { return (a.m + a.r) - (b.m + b.r); }).pop();
+        setText('d-head', lastDone && lastDone.out === 'esc' ? 'Latest escalation' : lastDone && lastDone.out === 'dec' ? 'Waiting on your team' : 'Latest reply');
+        setText('detail', lastDone
+          ? '<div class="card"><p class="subj">' + (lastDone.out === 'esc' ? 'Called your on-call: ' : 'Re: ') + lastDone.title + ' [#' + lastDone.id + ']</p><p class="meta">' + (lastDone.out === 'esc' ? 'Sam, on call for Northwind IT' : 'To ' + lastDone.client) + ' · ' + wall(lastDone.m + lastDone.r) + '</p><p>' + lastDone.fix + '</p>' + (lastDone.out === 'esc' ? '' : '<p class="sig">Northwind IT Support</p>') + '</div><p class="by">Worked by the <b>night desk</b> in your PSA, signed as your team.</p>'
+          : '<div class="card"><p class="subj">Handoff received, 6:00 PM</p><p class="meta">From your day team</p><p>The queue is ours until 8 AM. Anything urgent goes straight to your on-call.</p></div>');
+      }
+    } else {
+      var day = DAY.filter(function (k) { return k.m <= m; });
+      setText('q-head', 'Today’s queue'); dayRows(day);
+      bump('<div><b>' + day.length + '</b><span>open today</span></div><div><b>4</b><span>techs online</span></div>');
+      setText('d-head', 'This morning');
+      setText('detail', '<div class="card"><p class="subj">Morning handoff, 8:00 AM</p><p class="meta">From the night desk</p><p>9 closed, 1 escalated, 1 needs your decision. Notes are on each ticket.</p></div><p class="by">The queue goes back to the night desk at <b>6:00 PM</b>.</p>');
+    }
+  }
+  function layout() { kick(); }
+  function frame(now) {
+    raf = 0;
+    advance(now);
+    renderDesk(mode === 'story' ? storyTime() : liveT);
+    if (visible && mode === 'story' && playing && !reduce) raf = requestAnimationFrame(frame);
+  }
+  function kick() { if (!raf) raf = requestAnimationFrame(frame); }
+
+  /* ---------- The live thing: pick an hour in New York ---------- */
+  function nyToday() { var p = parts(Date.now(), NYZ); return { y: +p.year, mo: +p.month, d: +p.day, m: +p.hour * 60 + +p.minute }; }
+  var today = nyToday();
+  hour.value = String(Math.floor(today.m / 15) * 15);
+  function setHour(userMoved) {
+    var m = +hour.value, t = userMoved ? zoned(today.y, today.mo, today.d, Math.floor(m / 60), m % 60, NYZ) : Date.now();
+    liveT = t;
+    var on = deskOn(t);
+    hour.setAttribute('aria-valuetext', 'At ' + clock(t, NYZ) + ' in New York it’s ' + clock(t, KTZ) + ' in Kathmandu: ' + (on ? 'our desk is on, your team is off.' : 'your team is on, our desk is off.'));
+    hourOut.innerHTML = 'At <b>' + clock(t, NYZ) + '</b> in New York it’s <b>' + clock(t, KTZ) + '</b> in Kathmandu: ' + (on ? '<b>our desk is on</b>, your team is off.' : '<b>your team is on</b>, our desk is off.');
+    kick();
+  }
+  hour.addEventListener('input', function () { setFollow(true); });
+  hour.addEventListener('change', function () { track('hour_scrub', { minutes: +hour.value }); });
+  /* The footer says who has the queue right now */
+  function footNow() {
+    var t = Date.now(), on = deskOn(t), el = $('foot-now');
+    el.querySelector('span').innerHTML = 'Right now it’s <b>' + clock(t, NYZ) + '</b> in New York and <b>' + clock(t, KTZ) + '</b> in Kathmandu. ' +
+      (on ? '<b>Our desk is on shift.</b>' : 'Your team has the queue; our desk starts at 6 PM Eastern.');
+    el.classList.toggle('day', !on); el.hidden = false;
+  }
+  footNow(); setInterval(footNow, 30000);
+
+  /* The slider follows the real clock (now) until the visitor picks an hour (picked); "Back to now" returns to the clock */
+  var moved = false, nowBtn = $('hour-now');
+  function setFollow(picked) {
+    moved = picked; stage.dataset.hour = picked ? 'picked' : 'now'; nowBtn.hidden = !picked;
+    if (!picked) { today = nyToday(); hour.value = String(Math.floor(today.m / 15) * 15); }
+    setHour(picked);
+  }
+  nowBtn.addEventListener('click', function () { setFollow(false); hour.focus(); track('hour_now', {}); });
+  setFollow(false);
+  setInterval(function () { if (!moved && mode === 'live') setFollow(false); }, 30000);
+
+  /* ---------- The example night plays itself while its section is on screen ---------- */
+  var story = $('night'), beatsEl = $('beats'), beats =[].slice.call(story.querySelectorAll('.beat')), steps = [].slice.call(story.querySelectorAll('.step')), playBtn = $('play');
+  var STARTS = [0, 0.2, 0.86], DUR = 21000, /* 6 PM, about 8:50 PM, about 6 AM on the example night */ playing = !reduce, p0 = 0, t0 = 0;
+  function setMode(m) { if (m !== mode) { mode = m; stage.setAttribute('data-mode', m); if (m === 'live') setHour(moved); } kick(); }
+  function paint() {
+    var b = storyP < STARTS[1] ? 0 : storyP < STARTS[2] ? 1 : 2;
+    if (b !== beat) { beat = b; beats.forEach(function (el, i) { el.classList.toggle('on', i === b); }); }
+    steps.forEach(function (st, i) {
+      var a = STARTS[i], z = STARTS[i + 1] || 1;
+      st.style.setProperty('--fill', Math.max(0, Math.min(1, (storyP - a) / (z - a))).toFixed(3));
+      st.classList.toggle('on', i === b); if (i === b) st.setAttribute('aria-current', 'step'); else st.removeAttribute('aria-current');
+    });
+    desk.setAttribute('data-state', mode !== 'story' ? 'live' : storyP > 0.93 ? 'note' : 'queue');
+    var st = reduce ? 'manual' : storyP >= 1 ? 'ended' : !playing ? 'paused' : mode === 'story' ? 'playing' : 'waiting';
+    if (story.dataset.state !== st) story.dataset.state = st;
+    playBtn.textContent = st === 'ended' ? 'Play the night again' : st === 'paused' ? 'Play' : 'Pause';
+    playBtn.hidden = reduce;
+  }
+  function seek(p, play) { storyP = p0 = p; t0 = performance.now(); playing = play && !reduce; paint(); kick(); }
+  /* called from frame(): moves the night on while it is playing and on screen */
+  function advance(now) { if (mode !== 'story' || !playing) return; if (now - t0 > 400) beatsEl.removeAttribute('aria-live'); storyP = Math.min(1, p0 + (now - t0) / DUR); if (storyP >= 1) playing = false; paint(); }
+  steps.forEach(function (st, i) { st.addEventListener('click', function () { beatsEl.setAttribute('aria-live', 'polite'); seek(reduce ? [0.15, 0.6, 1][i] : STARTS[i], true); track('story_step', { step: i }); }); });
+  playBtn.addEventListener('click', function () { if (storyP >= 1) seek(0, true); else if (playing) { playing = false; paint(); } else seek(storyP, true); track('story_play', {}); });
+  new IntersectionObserver(function (es) {
+    if (es[0].isIntersecting) { p0 = storyP; t0 = performance.now(); setMode('story'); } else setMode('live');
+    paint();
+  }, { threshold: 0.25 }).observe(story);
+  if (reduce) storyP = 0.15;
+
+  new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) kick(); }).observe(stage);
+  document.addEventListener('visibilitychange', function () { visible = !document.hidden; if (visible) kick(); });
+  var rt; addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(layout, 150); });
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () { layout(); paint(); });
+
+  /* ---------- The monthly report's bars ---------- */
+  var REPORT = [7,10,9,6,5,7,5,8,11,10,6,11,6,4,6,9,10,5,6,7,5,7,11,9,6,5,6,5,8,10,9];
+  $('bars').innerHTML = REPORT.map(function (v) { return '<i style="height:' + (v / 11 * 100).toFixed(1) + '%"></i>'; }).join('');
+
+  /* ---------- Who it's for: the active row changes the picture ---------- */
+  var rows = [].slice.call(document.querySelectorAll('.rowi')), pics = [].slice.call($('who-pic').children);
+  function activate(i) {
+    rows.forEach(function (r, j) { r.classList.toggle('on', j === i); r.querySelector('button').setAttribute('aria-expanded', j === i); });
+    pics.forEach(function (p) { p.classList.toggle('on', +p.getAttribute('data-row') === i); });
+  }
+  rows.forEach(function (r, i) {
+    var b = r.querySelector('button');
+    b.addEventListener('click', function () { activate(i); track('who_row', { row: i }); });
+    b.addEventListener('mouseenter', function () { if (matchMedia('(hover: hover)').matches) activate(i); });
+  });
+  var loop = $('who-pic').querySelector('video');
+  if (loop && !reduce) new IntersectionObserver(function (es) { if (es[0].isIntersecting) { var p = loop.play(); if (p && p.catch) p.catch(function () {}); } else loop.pause(); }, { threshold: 0.2 }).observe(loop);
+
+  /* ---------- The film ---------- */
+  var fv = $('film-v'), film = $('film'), filmBtn = $('film-play');
+  function filmState(st) { film.dataset.state = st; film.classList.toggle('playing', st === 'playing' || st === 'paused'); }
+  filmBtn.addEventListener('click', function () {
+    fv.controls = true; fv.preload = 'auto';
+    if (film.dataset.state === 'ended') fv.currentTime = 0;
+    filmState('playing');
+    /* back to the poster only when the browser really cannot play (blocked or unsupported); an interrupted start (a quick pause) is not a failure */
+    var p = fv.play(); if (p && p.catch) p.catch(function (e) { if (e && e.name !== 'AbortError' && fv.paused) { fv.controls = false; filmState('poster'); } });
+    fv.focus(); track('film_play', {});
+  });
+  fv.addEventListener('play', function () { filmState('playing'); });
+  fv.addEventListener('pause', function () { if (!fv.ended) filmState('paused'); });
+  fv.addEventListener('ended', function () { fv.controls = false; filmState('ended'); filmBtn.querySelector('span').lastChild.textContent = 'Watch it again'; });
+  filmState('poster');
+
+  /* ---------- Entrances, once per section ---------- */
+  var rise = [].slice.call(document.querySelectorAll('[data-rise]'));
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -12% 0px' });
+    rise.forEach(function (el) { io.observe(el); });
+  } else rise.forEach(function (el) { el.classList.add('in'); });
+
+  /* ---------- Latest posts, live from WordPress (the built-in list stays if this fails) ---------- */
+  if (location.hostname === 'availclouds.com' || location.hostname === 'www.availclouds.com') {
+    /* same shape as the list build-home.mjs bakes in: title link, short date, excerpt clipped near 160 characters */
+    var plainText = function (html) { var t = document.createElement('textarea'); t.innerHTML = String(html || '').replace(/<[^>]*>/g, ' '); return t.value.replace(/\s+/g, ' ').trim(); };
+    var clip = function (s) { s = s.replace(/\s*\[(…|\.\.\.)\]$/, '…'); return s.length <= 160 ? s : s.slice(0, 160).replace(/\s+\S*$/, '').replace(/[\s,;:.\-–—]+$/, '') + '…'; };
+    fetch('/wp-json/wp/v2/posts?per_page=3&after=2026-10-15T00:00:00&_fields=title,link,date,excerpt', { headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (ps) {
+        if (!Array.isArray(ps) || !ps.length) return;
+        var ul = $('posts'); ul.textContent = ''; ul.dataset.source = 'live';
+        ps.forEach(function (p) {
+          if (!/^https?:\/\//i.test(String(p.link))) return;
+          var li = document.createElement('li'), a = document.createElement('a'), tm = document.createElement('time'), d = String(p.date).slice(0, 10);
+          a.textContent = plainText(p.title && p.title.rendered); a.href = p.link;
+          tm.dateTime = d; tm.textContent = new Date(d + 'T00:00:00Z').toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+          li.appendChild(a); li.appendChild(tm);
+          var ex = clip(plainText(p.excerpt && p.excerpt.rendered));
+          if (ex) { var para = document.createElement('p'); para.textContent = ex; li.appendChild(para); }
+          ul.appendChild(li);
+        });
+      }).catch(function () {});
+  }
+
+  document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('[data-track]'); if (a) track('cta_click', { where: a.getAttribute('data-track') }); });
+})();
+</script>
+</body>
+</html>
